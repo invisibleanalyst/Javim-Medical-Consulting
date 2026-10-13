@@ -59,7 +59,7 @@ export function mountScene(container) {
   const texture = new THREE.CanvasTexture(surface);
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(5, 2);
-  const red = new THREE.MeshPhysicalMaterial({color:0xac0718,roughness:.58,metalness:0,clearcoat:.1,clearcoatRoughness:.5,envMapIntensity:.3,bumpMap:texture,bumpScale:.07});
+  const red = new THREE.MeshPhysicalMaterial({color:0xac0718,roughness:.72,metalness:0,clearcoat:.04,clearcoatRoughness:.7,envMapIntensity:.25,bumpMap:texture,bumpScale:.055});
   const pale = new THREE.MeshPhysicalMaterial({color:0xc21924,roughness:.62,envMapIntensity:.25,bumpMap:texture,bumpScale:.04});
   const deep = new THREE.MeshPhysicalMaterial({color:0x710916,roughness:.6,envMapIntensity:.25,bumpMap:texture,bumpScale:.04});
   const dna = new THREE.Group(); scene.add(dna);
@@ -67,7 +67,15 @@ export function mountScene(container) {
   const point = (t, phase = 0) => new THREE.Vector3(Math.cos(t * turns * Math.PI * 2 + phase) * radius, (t - .5) * height, Math.sin(t * turns * Math.PI * 2 + phase) * radius);
   for (const phase of [0, offset]) {
     const points = Array.from({length:241}, (_, i) => point(i / 240, phase));
-    dna.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 240, .145, 18, false), red));
+    const geometry = new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 320, .12, 24, false);
+    const vertices = geometry.attributes.position, normals = geometry.attributes.normal;
+    for (let i = 0; i < vertices.count; i++) {
+      const x = vertices.getX(i), y = vertices.getY(i), z = vertices.getZ(i);
+      const fold = .013 * Math.sin(y * 24 + x * 13) * Math.sin(z * 21 - y * 9) + .008 * Math.sin(y * 43 + z * 17);
+      vertices.setXYZ(i, x + normals.getX(i) * fold, y + normals.getY(i) * fold, z + normals.getZ(i) * fold);
+    }
+    geometry.computeVertexNormals();
+    dna.add(new THREE.Mesh(geometry, deep));
   }
   const atomGeometry = new THREE.SphereGeometry(1, 16, 12);
   const bondGeometry = new THREE.CylinderGeometry(1, 1, 1, 10);
@@ -82,14 +90,14 @@ export function mountScene(container) {
   };
   for (let i = 0; i <= 27; i++) {
     const t = i / 27, left = point(t), right = point(t, offset);
-    atom(left, .135, red); atom(right, .135, red);
+    atom(left, .1, red); atom(right, .1, red);
     const middle = left.clone().lerp(right, .5);
     bond(left, middle, .06, i % 2 ? red : pale);
     bond(middle, right, .06, i % 2 ? pale : deep);
     for (let j = 1; j < 6; j++) {
       const p = left.clone().lerp(right, j / 6);
       p.y += Math.sin(j * Math.PI / 3) * .035;
-      atom(p, j === 3 ? .065 : .074, (i + j) % 3 ? pale : red);
+      atom(p, j === 3 ? .045 : .052, (i + j) % 3 ? pale : red);
     }
     for (const phase of [0, offset]) {
       const p = point(Math.min(1, t + .014), phase);
@@ -97,23 +105,57 @@ export function mountScene(container) {
       atom(side, .06, deep); bond(p, side, .035, red);
     }
   }
-  // Instanced surface clusters add molecular relief with one additional draw call.
-  const clusters = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 8, 6), red, 810);
-  const dummy = new THREE.Object3D(); let clusterIndex = 0;
-  for (const phase of [0, offset]) for (let i = 0; i <= 80; i++) {
-    const t = i / 80, centre = point(t, phase);
+  // Overlapping irregular grains form the strand itself, rather than dots on a tube.
+  // Instancing retains two draw calls for thousands of fused-looking pieces.
+  const grainGeometry = new THREE.SphereGeometry(1, 10, 8);
+  const positions = grainGeometry.attributes.position;
+  for (let i = 0; i < positions.count; i++) {
+    const x = positions.getX(i), y = positions.getY(i), z = positions.getZ(i);
+    const ridge = 1 + .14 * Math.sin(x * 7 + y * 4) * Math.sin(z * 8 - y * 5) + .07 * Math.cos(y * 13 + x * 6);
+    positions.setXYZ(i, x * ridge, y * ridge, z * ridge);
+  }
+  grainGeometry.computeVertexNormals();
+  const rows = 320, ringCount = 10;
+  const clusters = new THREE.InstancedMesh(grainGeometry, red, 2 * rows * ringCount);
+  const dummy = new THREE.Object3D(), colour = new THREE.Color(); let clusterIndex = 0;
+  const setGrain = (centre, normal, binormal, tangent, angle, radius, size) => {
+    dummy.position.copy(centre).addScaledVector(normal, Math.cos(angle) * radius).addScaledVector(binormal, Math.sin(angle) * radius);
+    dummy.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), tangent);
+    dummy.rotateY(random() * Math.PI); dummy.rotateZ((random() - .5) * .7);
+    dummy.scale.set(size * (.8 + random() * .3), size * (1.1 + random() * .6), size * (.75 + random() * .4));
+    dummy.updateMatrix(); return dummy.matrix;
+  };
+  for (const phase of [0, offset]) for (let i = 0; i < rows; i++) {
+    const t = (i + (random() - .5) * .6) / (rows - 1), centre = point(t, phase);
     const tangent = point(t + .001, phase).sub(centre).normalize();
     const normal = new THREE.Vector3(centre.x, 0, centre.z).normalize();
     normal.addScaledVector(tangent, -normal.dot(tangent)).normalize();
     const binormal = new THREE.Vector3().crossVectors(tangent, normal).normalize();
-    for (let j = 0; j < 5; j++) {
-      const angle = j * Math.PI * 2 / 5 + random() * .5;
-      dummy.position.copy(centre).addScaledVector(normal, Math.cos(angle) * .14).addScaledVector(binormal, Math.sin(angle) * .14);
-      dummy.scale.setScalar(.025 + random() * .018); dummy.updateMatrix();
-      clusters.setMatrixAt(clusterIndex++, dummy.matrix);
+    for (let j = 0; j < ringCount; j++) {
+      const angle = j * Math.PI * 2 / ringCount + random() * .45 + i * .37;
+      const size = .05 + random() * .025;
+      clusters.setMatrixAt(clusterIndex, setGrain(centre, normal, binormal, tangent, angle, .105 + random() * .016, size));
+      colour.setRGB(.65 + random() * .35, .65 + random() * .35, .65 + random() * .35);
+      clusters.setColorAt(clusterIndex++, colour);
     }
   }
-  clusters.instanceMatrix.needsUpdate = true; dna.add(clusters);
+  clusters.instanceMatrix.needsUpdate = true; clusters.instanceColor.needsUpdate = true; dna.add(clusters);
+  // Smaller packed grains continue the same texture across the connecting rungs.
+  const rungGrains = new THREE.InstancedMesh(grainGeometry, red, 28 * 32 * 4);
+  let rungIndex = 0;
+  for (let i = 0; i <= 27; i++) {
+    const left = point(i / 27), right = point(i / 27, offset), tangent = right.clone().sub(left).normalize();
+    const normal = new THREE.Vector3(0, 1, 0), binormal = new THREE.Vector3().crossVectors(tangent, normal).normalize();
+    normal.crossVectors(binormal, tangent).normalize();
+    for (let k = 0; k < 32; k++) {
+      const centre = left.clone().lerp(right, (k + random() * .4) / 31.4);
+      for (let j = 0; j < 4; j++) {
+        rungGrains.setMatrixAt(rungIndex, setGrain(centre, normal, binormal, tangent, j * Math.PI / 2 + random() * .5, .034, .029 + random() * .014));
+        colour.setScalar(.7 + random() * .3); rungGrains.setColorAt(rungIndex++, colour);
+      }
+    }
+  }
+  rungGrains.instanceMatrix.needsUpdate = true; rungGrains.instanceColor.needsUpdate = true; dna.add(rungGrains);
   const initialYaw = -.65;
   dna.rotation.set(.15, initialYaw, -.42);
   dna.position.x = .35;
