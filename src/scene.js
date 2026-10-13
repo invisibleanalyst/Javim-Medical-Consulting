@@ -14,7 +14,7 @@ export function mountScene(container) {
   renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 760 ? 1 : 1.5));
   renderer.setClearColor(0xffffff, 0);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1;
+  renderer.toneMappingExposure = .92;
   container.appendChild(renderer.domElement);
   renderer.domElement.setAttribute('aria-hidden', 'true');
   const scene = new THREE.Scene(); // No background or fog: preserve the canvas alpha channel.
@@ -24,10 +24,10 @@ export function mountScene(container) {
   const room = new RoomEnvironment();
   scene.environment = pmrem.fromScene(room, .04).texture;
   room.dispose(); pmrem.dispose();
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x8d6261, 1.1));
-  const key = new THREE.DirectionalLight(0xfff8ef, 3); key.position.set(-5, 5, 6); scene.add(key);
-  const fill = new THREE.DirectionalLight(0xffffff, 1.3); fill.position.set(4, -2, 3); scene.add(fill);
-  const rim = new THREE.DirectionalLight(0xffbbbb, 1.6); rim.position.set(2, 3, -4); scene.add(rim);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x735354, .75));
+  const key = new THREE.DirectionalLight(0xfff3e8, 3.1); key.position.set(-5, 5, 6); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xffffff, .9); fill.position.set(4, -2, 3); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffd1c9, 2.2); rim.position.set(2, 3, -4); scene.add(rim);
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true; controls.enablePan = false; controls.enableZoom = false;
   controls.minPolarAngle = Math.PI * .35; controls.maxPolarAngle = Math.PI * .65;
@@ -47,7 +47,7 @@ export function mountScene(container) {
   context.putImageData(pixels, 0, 0);
   const texture = new THREE.CanvasTexture(surface);
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-  const red = new THREE.MeshPhysicalMaterial({color:0xc31529,roughness:.52,metalness:0,clearcoat:.12,envMapIntensity:.45,bumpMap:texture,bumpScale:.018});
+  const red = new THREE.MeshPhysicalMaterial({color:0xc31529,roughness:.42,metalness:0,clearcoat:.24,clearcoatRoughness:.32,envMapIntensity:.55,bumpMap:texture,bumpScale:.025});
   const pale = new THREE.MeshPhysicalMaterial({color:0xe4a5a2,roughness:.58,envMapIntensity:.4});
   const deep = new THREE.MeshPhysicalMaterial({color:0x8f1826,roughness:.55,envMapIntensity:.35});
   const dna = new THREE.Group(); scene.add(dna);
@@ -85,7 +85,8 @@ export function mountScene(container) {
       atom(side, .085, pale); bond(p, side, .035, red);
     }
   }
-  dna.rotation.set(.08, .4, -.18);
+  dna.rotation.set(.08, .4, -.25);
+  dna.position.x = .45;
   const media = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = media.matches, visible = true, elapsed = 0, last = performance.now(), lastRender = 0, dirty = true, frame;
   const button = document.querySelector('#motion-toggle');
@@ -101,6 +102,7 @@ export function mountScene(container) {
   const resize = () => {
     const {width, height} = container.getBoundingClientRect();
     if (!width || !height) return;
+    dna.scale.setScalar(width < 450 ? 1.65 : 2.05);
     renderer.setSize(width, height); camera.aspect = width / height; camera.updateProjectionMatrix(); dirty = true;
   };
   new ResizeObserver(resize).observe(container); resize();
@@ -113,7 +115,13 @@ export function mountScene(container) {
     const moved = controls.update();
     if (!paused) elapsed += dt;
     if ((paused && !dirty && !moved) || now - lastRender < 1000 / 30) return;
-    if (!paused) { dna.rotation.y = .4 + elapsed * .065; dna.position.y = Math.sin(elapsed * .2) * .07; }
+    if (!paused) {
+      dna.rotation.y = .4 + elapsed * .045;
+      dna.position.y = Math.sin(elapsed * .2) * .09;
+      // A slow studio-light drift reveals surface depth without flashing.
+      key.position.x = -5 + Math.sin(elapsed * .12) * .8;
+      rim.intensity = 2.2 + Math.sin(elapsed * .15) * .12;
+    }
     lastRender = now; dirty = false; renderer.render(scene, camera);
     container.querySelector('.scene-fallback').hidden = true;
   };

@@ -15,3 +15,10 @@
 .motion-toggle{border:1px solid #d5d8ce;background:#f7f7f2;color:#555b51}
 .scene-fallback{display:flex;align-items:center;justify-content:center}
 .scene-fallback svg{height:90%;width:auto;max-width:90%;opacity:.85}
+/* Oversized editorial DNA composition with a soft studio-light wash. */
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:20px -20px 90px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 79% 53%,#eb9e9633,transparent 48%),radial-gradient(ellipse at 68% 12%,#ffffffd9,transparent 42%)}
+#medical-scene{mask-image:linear-gradient(to bottom,transparent 0%,#000 5%,#000 95%,transparent 100%)}
+.scene-bottom{z-index:2}
+.scene-fallback svg{height:175%;max-width:none;flex-shrink:0;transform:rotate(-8deg)}
+@media(max-width:760px){.hero::before{inset:25% -10px 60px;background:radial-gradient(ellipse at 60% 68%,#eb9e962b,transparent 65%)}.scene-fallback svg{height:155%}}
