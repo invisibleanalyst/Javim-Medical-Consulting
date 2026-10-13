@@ -4,11 +4,11 @@ A minimalist, responsive laboratory website built with Vite, vanilla JavaScript 
 
 ## Current design
 
-Screenshots of the current implementation. The live blood-cell and DNA scenes are paused in these captures.
+Screenshots of the current implementation. The landing-page DNA scene is paused in these captures. Its transparent canvas lets the light page background show through.
 
 ### Desktop homepage
 
-![Desktop homepage with animated blood-cell scene](docs/screenshots/desktop.png)
+![Desktop homepage with transparent DNA scene](docs/screenshots/desktop.png)
 
 [View the complete homepage](docs/screenshots/homepage.png)
 
@@ -60,7 +60,7 @@ Once public Cal.com event links exist, copy `.env.example` to `.env.local` and f
 
 The supplied logo images were visible in the conversation but were not available as local downloadable files, and retrieval from the former website was blocked. The current mark is a hand-recreated SVG based on the supplied artwork, not the original vector. Replace `public/assets/javim-mark.svg` and `favicon.svg` with approved originals for launch.
 
-Blood cells use biconcave geometry, material grain and directional/environment lighting. DNA uses a rotating geometric helix. Both support pointer/touch rotation, a pause control, reduced-motion preferences, off-screen suspension and a static fallback when WebGL is unavailable. These are original illustrative 3D scenes, not photorealistic stock footage or scientifically exact simulations.
+The landing-page DNA uses offset helical strands, paired bases, small molecular details and subtle surface grain with soft lighting. The WebGL canvas preserves alpha, has no opaque scene background or fog, and composites directly over the light page. Its slow rotation supports pointer/touch exploration, a pause control, reduced-motion preferences, off-screen suspension and a static DNA fallback. This is an original scientific illustration, not a scientifically exact molecular model or a claim that Javim offers genetic testing. The former blood-cell/DNA switcher and technical labels have been removed from the hero.
 
 The anatomy explorer is an original stylized SVG with clickable and keyboard-selectable organs; it is not realistic 3D anatomy. Related tests provide service navigation, not diagnostic recommendations. No other brands' or watermarked stock imagery is included.
 

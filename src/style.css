@@ -9,3 +9,9 @@
 :root{--muted:#656960}.index{color:#697064}.hero-foot{color:#6b6f66}.search-bar>div:focus-within{outline:2px solid var(--red);outline-offset:3px}
 [hidden]{display:none!important}
 .header nav>a:hover,.header nav>a[aria-current],.text-link:hover{color:#be1d25}
+/* The DNA canvas composites directly onto the page; no opaque panel. */
+.hero-visual{background:transparent;border-radius:0;overflow:hidden}
+.scene-bottom{justify-content:flex-end}
+.motion-toggle{border:1px solid #d5d8ce;background:#f7f7f2;color:#555b51}
+.scene-fallback{display:flex;align-items:center;justify-content:center}
+.scene-fallback svg{height:90%;width:auto;max-width:90%;opacity:.85}

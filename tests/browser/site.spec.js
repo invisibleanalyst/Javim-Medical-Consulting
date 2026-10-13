@@ -4,8 +4,11 @@ test('desktop scene, booking modal, anatomy and catalogue work',async({page})=>{
   await page.emulateMedia({reducedMotion:'reduce'});
   await page.goto('/');
   await expect(page.locator('#medical-scene canvas')).toBeVisible({timeout:20000});
-  await page.locator('[data-scene="dna"]').click();
-  await expect(page.locator('[data-scene="dna"]')).toHaveAttribute('aria-pressed','true');
+  await expect(page.locator('[data-scene]')).toHaveCount(0);
+  expect(await page.locator('#medical-scene canvas').evaluate(canvas => {
+    const gl = canvas.getContext('webgl2');
+    return gl.getContextAttributes().alpha && gl.getParameter(gl.COLOR_CLEAR_VALUE)[3] === 0;
+  })).toBe(true);
   await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Play animation');
   await page.locator('#motion-toggle').click();
   await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Pause animation');
@@ -59,7 +62,7 @@ test('without WebGL, a static illustration and all booking controls remain usabl
     HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/.test(type)?null:original.call(this,type,...args);};
   });
   await page.goto('/');
-  await expect(page.locator('.scene-live')).toHaveText('ILLUSTRATION',{timeout:20000});
+  await expect(page.locator('#motion-toggle')).toBeHidden({timeout:20000});
   await expect(page.locator('.scene-fallback')).toBeVisible();
   await page.getByRole('button',{name:'Make an appointment'}).click();
   await expect(page.locator('#booking-dialog')).toBeVisible();
