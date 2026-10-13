@@ -1,0 +1,1167 @@
+[
+  {
+    "name": "(Deep branch of transverse cervical artery).l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "(Deep branch of transverse cervical artery).r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "(Superficial branch of transverse cervical artery).l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "(Superficial branch of transverse cervical artery).r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "(Ulnar recurrent artery).l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "(Ulnar recurrent artery).r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Abdominal aorta",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior basal segmental artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior basal segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior branch of renal artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior branch of renal artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior circumflex humeral artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior circumflex humeral artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior inferior pancreaticoduodenal artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior interventricular artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior segmental artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Anterior segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Apical segmental artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Apical segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Appendicular artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Ascending aorta",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Ascending branch of left colic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Axillary artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Axillary artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Body of sternum",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Brachial artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Brachial artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Circumflex artery of heart",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Circumflex scapular artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Circumflex scapular artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Clavicle.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Clavicle.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Colic branch of ileocolic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Common hepatic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Common iliac artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Common iliac artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Common interosseous artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Common interosseous artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Coronary sinus",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of eighth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of eighth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of fifth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of fifth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of first rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of first rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of fourth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of fourth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of ninth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of ninth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of second rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of second rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of seventh rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of seventh rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of sixth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of sixth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of tenth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of tenth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of third rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Costal cartilage of third rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Deep brachial artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Deep brachial artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Deep cervical artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Deep cervical artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Descending branch of left colic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Eighth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Eighth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Eleventh rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Eleventh rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "External carotid artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "External carotid artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Facial artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Facial artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Fifth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Fifth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "First posterior intercostal artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "First posterior intercostal artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "First rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "First rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Fourth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Fourth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Gastroduodenal artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Ileal branch of ileocolic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Ileocolic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Iliacus branch of iliolumbar artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Iliacus branch of iliolumbar artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior alveolar artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior alveolar artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior lingular artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior lobar artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior mesenteric artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior pancreaticoduodenal artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior phrenic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior suprarenal artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior suprarenal artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior thyroid artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior thyroid artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior ulnar collateral artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior ulnar collateral artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior vena cava (abdominal part)",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior vena cava (thoracic part)",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Internal carotid artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Internal carotid artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Internal thoracic artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Internal thoracic artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Intrarenal arteries of left kidney",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Intrarenal arteries of right kidney",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Lateral basal segmental artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Lateral basal segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Lateral segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Lateral thoracic artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Lateral thoracic artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left atrium",
+    "system": "blood",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left colic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left common carotid artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left coronary artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left gastric artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left inferior pulmonary vein",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left pulmonary artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left renal artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left subclavian artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left superior pulmonary vein",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left testicular artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Left ventricle",
+    "system": "blood",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Liver",
+    "system": "liver",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Lumbar arteries.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Manubrium of sternum",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Marginal artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Medial basal segmental artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Medial basal segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Medial segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Median sacral artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Mental branch of inferior alveolar artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Mental branch of inferior alveolar artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Middle colic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Middle collateral artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Middle collateral artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Middle lobar artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Musculophrenic artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Musculophrenic artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Ninth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Ninth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Pectoral branches of thoraco-acromial artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Pectoral branches of thoraco-acromial artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior basal segmental artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior basal segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior branch of renal artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior branch of renal artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior circumflex humeral artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior circumflex humeral artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior segmental artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Proper hepatic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Pulmonary trunk",
+    "system": "blood",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Radial artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Radial artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Radial collateral artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Radial collateral artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right colic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right common carotid artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right coronary artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right pulmonary artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right subclavian artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Second posterior intercostal artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Second posterior intercostal artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Second rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Septal branches of anterior interventricular artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior epigastric artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Inferior epigastric artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Lumbar arteries.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Pancreas",
+    "system": "metabolic",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior intercostal arteries.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior intercostal arteries.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior interosseous artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Posterior interosseous artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Recurrent interosseous artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Recurrent interosseous artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right atrium",
+    "system": "blood",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right inferior pulmonary vein",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right inferolateral branch of right coronary artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right renal artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right superior pulmonary vein",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right testicular artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Right ventricle",
+    "system": "blood",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Second rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Seventh rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Seventh rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Sigmoid arteries",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Sixth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Sixth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Splenic artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Subcostal artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Subcostal artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Submental artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Submental artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Subscapular artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Subscapular artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superficial epigastric artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superficial epigastric artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior epigastric artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior epigastric artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior lingular artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior lobar artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior mesenteric artery",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior phrenic arteries",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior segmental artery of left lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior segmental artery of right lung",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior ulnar collateral artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior ulnar collateral artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Superior vena cava",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Suprascapular artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Suprascapular artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Supreme intercostal artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Supreme intercostal artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Tenth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Tenth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Third rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Third rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Thoracic aorta",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Thoraco-acromial artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Thoraco-acromial artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Thoracodorsal artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Thoracodorsal artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Thyroid gland",
+    "system": "thyroid",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Transverse cervical artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Transverse cervical artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Twelfth rib.l",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Twelfth rib.r",
+    "system": "bones",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Ulnar artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Ulnar artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Vertebral artery.l",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Vertebral artery.r",
+    "system": "vessels",
+    "source": "Z-Anatomy / BodyParts3D"
+  },
+  {
+    "name": "Original illustrative kidney left",
+    "system": "kidneys",
+    "source": "Original simplified kidney geometry; not sourced from atlas kidney models"
+  },
+  {
+    "name": "Original illustrative kidney right",
+    "system": "kidneys",
+    "source": "Original simplified kidney geometry; not sourced from atlas kidney models"
+  }
+]

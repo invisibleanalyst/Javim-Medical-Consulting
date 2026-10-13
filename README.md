@@ -28,6 +28,14 @@ Screenshots of the current implementation. The landing-page DNA scene is paused 
 
 ![Expanded anatomy explorer and related laboratory tests](docs/screenshots/anatomy.png)
 
+### Organ close-up
+
+![Liver selected in the 3D torso explorer](docs/screenshots/anatomy-liver.png)
+
+### Mobile anatomy
+
+<img src="docs/screenshots/anatomy-mobile.png" alt="Mobile 3D torso explorer" width="390" />
+
 ### Services catalogue
 
 <img src="docs/screenshots/services.png" alt="Mobile service catalogue filtered to thyroid testing" width="390" />
@@ -72,7 +80,23 @@ The landing-page visual starts as a thin red helix leaning right, then automatic
 
 The canvas remains transparent over the softly lit hero, with pause, reduced-motion, off-screen suspension and a static fallback. Reduced motion starts with intact, still DNA; pressing Play opts into animation. Particle positions are calculated from their original DNA coordinates, so the scene continuously reforms without accumulating drift. This is a scientific illustration, not a claim that Javim offers genetic testing. WhatsApp text and links retain accessible brand-green colours.
 
-The anatomy explorer is an original stylized SVG with clickable and keyboard-selectable organs; it is not realistic 3D anatomy. Related tests provide service navigation, not diagnostic recommendations. No other brands' or watermarked stock imagery is included.
+The anatomy explorer now uses a real 3D torso with selected atlas-derived heart chambers, vessels, ribs, clavicles, sternum, thyroid, liver and pancreas. The browser asset is approximately 3.9 MB with Meshopt compression and loads only when the explorer opens. Organ markers and the system buttons highlight the selected structures, focus the camera and reveal the existing related tests. Drag to rotate and use “Full torso” to restore the overview. The cropped SVG remains as a fallback when WebGL or the asset is unavailable.
+
+Model attribution and ShareAlike terms are available through the visible **Model credits** link and `public/assets/anatomy/NOTICE.md`. The atlas's noncommercial kidney and inner-ear meshes are excluded; kidneys are independently authored simplified shapes. This remains a service-discovery illustration, not a clinical anatomy reference or a diagnostic recommendation. Have the clinical team review organ presentation and test associations before medical-instruction use.
+
+### Reproducing the anatomy asset
+
+The checked-in GLB is ready to serve; Blender and conversion packages are **not** needed for normal website development. To rebuild it, obtain the exact source revision documented in `NOTICE.md`, extract only `Z-Anatomy/Startup.blend` from the source archive, and run Blender with scripts disabled:
+
+```sh
+blender --background --disable-autoexec /path/to/Startup.blend --python tools/export-anatomy.py
+npm install --prefix /tmp/javim-model-tools @gltf-transform/core @gltf-transform/extensions @gltf-transform/functions meshoptimizer --cache /tmp/javim-npm-cache
+cp tools/optimize-anatomy.mjs /tmp/javim-model-tools/optimize.mjs
+node /tmp/javim-model-tools/optimize.mjs public/assets/anatomy/torso.glb /tmp/javim-torso-optimized.glb
+cp /tmp/javim-torso-optimized.glb public/assets/anatomy/torso.glb
+```
+
+The conversion scripts perform the selection, crop, smoothing, original kidney construction, simplification and compression. The model manifest records included structures; the asset licence applies to the adapted model, not unrelated website code.
 
 ## Validation
 

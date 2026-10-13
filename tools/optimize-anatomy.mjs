@@ -1,0 +1,12 @@
+import {NodeIO} from '@gltf-transform/core';
+import {ALL_EXTENSIONS} from '@gltf-transform/extensions';
+import {weld,simplify,meshopt} from '@gltf-transform/functions';
+import {MeshoptEncoder,MeshoptDecoder,MeshoptSimplifier} from 'meshoptimizer';
+await Promise.all([MeshoptEncoder.ready,MeshoptDecoder.ready,MeshoptSimplifier.ready]);
+const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.encoder':MeshoptEncoder,'meshopt.decoder':MeshoptDecoder});
+const input=process.argv[2];
+if (!input || !process.argv[3]) throw new Error('Pass input and output GLB paths.');
+const doc=await io.read(input);
+await doc.transform(weld(),simplify({simplifier:MeshoptSimplifier,ratio:.55,error:.002}),meshopt({encoder:MeshoptEncoder,level:'high'}));
+await io.write(process.argv[3],doc);
+console.log('Optimized model saved.');

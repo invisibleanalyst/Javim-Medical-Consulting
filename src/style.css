@@ -58,3 +58,22 @@
   .system-tabs button,.filter-list button{font-size:13px}
   .explore-button{font-size:13px}
 }
+/* A real anatomical torso occupies the explorer, with accessible organ markers. */
+.anatomy-art{height:620px;min-height:0;position:relative;background:radial-gradient(ellipse at 50% 43%,#fafbf8 0%,#e4e8e064 52%,transparent 76%);overflow:hidden;border-radius:6px}
+#anatomy-scene{position:absolute;inset:0 0 46px;cursor:grab}
+#anatomy-scene:active{cursor:grabbing}
+#anatomy-scene canvas{display:block;width:100%;height:100%}
+.anatomy-fallback{display:flex;justify-content:center;align-items:center;position:absolute;inset:0}
+.anatomy-fallback svg{height:100%;max-width:100%;width:auto}
+.anatomy-hotspots{position:absolute;inset:0 0 46px;pointer-events:none}
+.anatomy-hotspot{position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border:1px solid #fff;background:#ffffffbb;border-radius:50%;pointer-events:auto;display:flex;justify-content:center;align-items:center;box-shadow:0 1px 10px #414c4226}
+.anatomy-hotspot span{width:8px;height:8px;border-radius:50%;background:#bb2130}
+.anatomy-hotspot.selected,.anatomy-hotspot[aria-pressed="true"]{border-color:#b92734;box-shadow:0 0 0 4px #bc263414}
+.anatomy-hotspot:hover{background:#fff}
+.anatomy-tools{position:absolute;left:12px;right:12px;bottom:5px;display:flex;justify-content:space-between;align-items:center;gap:15px;font-family:var(--mono);font-size:11px;color:#5d655a}
+.anatomy-tools button{background:#f7f7f2;border:1px solid #cbd1c5;border-radius:30px;padding:10px 14px;font-size:12px}
+.anatomy-tools a{display:flex;align-items:center;gap:8px;font-size:11px}
+.explorer-grid{gap:50px;align-items:start}
+.explorer-content{padding-top:32px}
+@media(max-width:760px){.anatomy-art{height:510px}.explorer-grid{gap:18px}.explorer-content{padding-top:15px}.anatomy-hotspot{width:30px;height:30px}.anatomy-tools{font-size:11px}}
+.anatomy-tools .arrow-icon{width:14px;height:14px;max-width:none}

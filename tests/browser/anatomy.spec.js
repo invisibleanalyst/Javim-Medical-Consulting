@@ -1,0 +1,32 @@
+import {test,expect} from '@playwright/test';
+test('torso loads only on opening, organ selection focuses real models, and rotation works',async({page})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});
+  const requests=[];const errors=[];page.on('request',r=>{if(r.url().includes('torso.glb'))requests.push(r.url());});page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/');expect(requests).toEqual([]);
+  await page.locator('.explorer-disclosure>summary').click();
+  const scene=page.locator('#anatomy-scene');await expect(scene).toHaveAttribute('data-status','ready',{timeout:30000});
+  await expect(scene.locator('canvas')).toBeVisible();expect(requests.length).toBe(1);
+  const groups=(await scene.getAttribute('data-systems')).split(',');
+  for(const id of ['blood','thyroid','liver','kidneys','metabolic'])expect(groups).toContain(id);
+  await page.evaluate(()=>document.querySelector('.anatomy-art').scrollIntoView({block:'center',behavior:'instant'}));
+  const canvas=scene.locator('canvas');const box=await canvas.boundingBox();
+  const before=await scene.getAttribute('data-rendered-camera');
+  await page.mouse.move(box.x+box.width*.6,box.y+box.height*.4);await page.mouse.down();await page.mouse.move(box.x+box.width*.75,box.y+box.height*.45,{steps:8});await page.mouse.up();
+  await expect.poll(()=>scene.getAttribute('data-rendered-camera')).not.toBe(before);
+  await page.locator('[data-system="liver"]').click();await expect(scene).toHaveAttribute('data-selected','liver');await expect(page.locator('#system-info h3')).toHaveText('Liver');
+  await page.locator('[data-organ="thyroid"]').focus();await page.keyboard.press('Enter');await expect(scene).toHaveAttribute('data-selected','thyroid');
+  await page.getByRole('button',{name:'Full torso',exact:true}).click();
+  await page.locator('.explorer-disclosure>summary').click();await page.locator('.explorer-disclosure>summary').click();expect(requests.length).toBe(1);
+  await expect(page.getByRole('link',{name:'Model credits'})).toHaveAttribute('href','/assets/anatomy/NOTICE.md');
+  expect(errors).toEqual([]);
+});
+test('mobile torso remains selectable and a missing model retains the fallback',async({page})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});await page.setViewportSize({width:390,height:844});
+  await page.goto('/');await page.locator('.explorer-disclosure>summary').click();
+  await expect(page.locator('#anatomy-scene')).toHaveAttribute('data-status','ready',{timeout:30000});
+  await page.locator('[data-system="kidneys"]').click();await expect(page.locator('#system-info h3')).toHaveText('Kidneys');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.route('**/assets/anatomy/torso.glb',r=>r.abort());await page.reload();await page.locator('.explorer-disclosure>summary').click();
+  await expect(page.locator('#anatomy-scene')).toHaveAttribute('data-status','fallback');
+  await expect(page.locator('.anatomy-fallback')).toBeVisible();await page.locator('[data-system="thyroid"]').click();await expect(page.locator('#system-info h3')).toHaveText('Thyroid');
+});
