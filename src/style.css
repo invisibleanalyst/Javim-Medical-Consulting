@@ -22,3 +22,13 @@
 .scene-bottom{z-index:2}
 .scene-fallback svg{height:175%;max-width:none;flex-shrink:0;transform:rotate(-8deg)}
 @media(max-width:760px){.hero::before{inset:25% -10px 60px;background:radial-gradient(ellipse at 60% 68%,#eb9e962b,transparent 65%)}.scene-fallback svg{height:155%}}
+/* WhatsApp's brand green, adapted for readable text on each background. */
+:root{--whatsapp-green:#087a3b}
+.whatsapp-link,.whatsapp-text,a[href^="https://wa.me/"]{color:var(--whatsapp-green)}
+.whatsapp-link:hover,a[href^="https://wa.me/"]:hover{color:#05632e}
+.contact-section{--whatsapp-green:#25d366}
+.contact-section .whatsapp-link:hover{color:#62e992}
+.booking-options .whatsapp-text{color:var(--whatsapp-green)}
+.booking-options a[href^="https://wa.me/"] h3,.booking-options a[href^="https://wa.me/"]>.index{color:#282b29}
+.booking-options a[href^="https://wa.me/"]:hover h3{color:var(--whatsapp-green)}
+.scene-fallback svg{transform:rotate(-18deg)}

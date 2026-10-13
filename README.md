@@ -28,6 +28,10 @@ Screenshots of the current implementation. The landing-page DNA scene is paused 
 
 <img src="docs/screenshots/services.png" alt="Mobile service catalogue filtered to thyroid testing" width="390" />
 
+### Booking options
+
+![Booking options with green WhatsApp labels](docs/screenshots/booking.png)
+
 ## Development
 
 Use the existing checkout at `/workspace/Javim-Medical-Consulting`. Cloud tasks are isolated; a separate Git worktree is unnecessary.
@@ -60,7 +64,7 @@ Once public Cal.com event links exist, copy `.env.example` to `.env.local` and f
 
 The supplied logo images were visible in the conversation but were not available as local downloadable files, and retrieval from the former website was blocked. The current mark is a hand-recreated SVG based on the supplied artwork, not the original vector. Replace `public/assets/javim-mark.svg` and `favicon.svg` with approved originals for launch.
 
-The landing-page DNA uses offset helical strands, paired bases, small molecular details and subtle surface grain with soft studio lighting. The helix is oversized and cropped at the top and bottom, with responsive scaling and a restrained rose light wash across the hero. A slowly drifting key light and rim highlight reveal surface depth during animation. The WebGL canvas preserves alpha, has no opaque scene background or fog, and composites directly over the light page. Its slow rotation supports pointer/touch exploration, a pause control, reduced-motion preferences, off-screen suspension and a static DNA fallback. This is an original scientific illustration, not a scientifically exact molecular model or a claim that Javim offers genetic testing. The former blood-cell/DNA switcher and technical labels have been removed from the hero.
+The landing-page DNA uses offset helical strands, paired bases, instanced molecular surface clusters and multi-scale surface grain with soft studio lighting. The helix is oversized and cropped at the top and bottom, with responsive scaling and a restrained rose light wash across the hero. A slowly drifting key light and rim highlight reveal surface depth during animation. The starting view is tilted, and all molecular materials use red shades. WhatsApp text and links use a darker brand green on light backgrounds and bright WhatsApp green on the dark contact section to preserve contrast. The starting view is tilted, and all molecular materials use red shades. WhatsApp text and links use a darker brand green on light backgrounds and bright WhatsApp green on the dark contact section to preserve contrast. The WebGL canvas preserves alpha, has no opaque scene background or fog, and composites directly over the light page. Its slow rotation supports pointer/touch exploration, a pause control, reduced-motion preferences, off-screen suspension and a static DNA fallback. This is an original scientific illustration, not a scientifically exact molecular model or a claim that Javim offers genetic testing. The former blood-cell/DNA switcher and technical labels have been removed from the hero.
 
 The anatomy explorer is an original stylized SVG with clickable and keyboard-selectable organs; it is not realistic 3D anatomy. Related tests provide service navigation, not diagnostic recommendations. No other brands' or watermarked stock imagery is included.
 
