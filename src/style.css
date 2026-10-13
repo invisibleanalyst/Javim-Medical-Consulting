@@ -32,8 +32,29 @@
 .booking-options a[href^="https://wa.me/"] h3,.booking-options a[href^="https://wa.me/"]>.index{color:#282b29}
 .booking-options a[href^="https://wa.me/"]:hover h3{color:var(--whatsapp-green)}
 .scene-fallback svg{transform:rotate(-18deg)}
-.fluid-hint{font-family:var(--mono);font-size:9px;letter-spacing:.04em;color:#62695e;margin-right:auto;padding:8px 0;pointer-events:none}
 #medical-scene{cursor:crosshair}
 .scene-fallback svg{max-width:65%;stroke-width:4;opacity:.8}
 .motion-toggle svg{width:15px;height:15px;vertical-align:middle}
-.fluid-hint{background:#f7f7f2e6;border-radius:20px;padding:7px 9px}
+/* Improve the small-text reading experience without enlarging the headlines. */
+.eyebrow,.index,.sample,.test-count,.hero-foot,.anatomy-caption{font-size:11px;line-height:1.7}
+.alias{font-size:12px;line-height:1.6}
+.brand small{font-size:10px;letter-spacing:.12em}
+.header nav{font-size:15px}
+.department-title small,.principles p,.test-row p,.test-action a,.contact-wa{font-size:15px;line-height:1.6}
+.muted{font-size:17px;line-height:1.7}
+.explorer-note,.booking-note,.contact-info .contact-note{font-size:14px;line-height:1.65}
+.booking-options p{font-size:15px;line-height:1.6}
+.footer-bottom{font-size:11px;line-height:1.7}
+.search-bar label{font-size:12px}
+@media(max-width:760px){
+  .brand small{font-size:9px}
+  .hero-foot{font-size:10px;gap:18px}
+  .hero-actions .button,.hero-actions .text-link,.section-tail .text-link,.section-tail .muted{font-size:14px}
+  .muted,.explorer-disclosure summary .muted{font-size:16px}
+  .department-title small,.principles p,.test-row p,.test-action a{font-size:14px}
+  .department .index,.sample,.booking-options .alias{font-size:11px}
+  .test-action{min-width:75px}
+  .footer-bottom{font-size:11px}
+  .system-tabs button,.filter-list button{font-size:13px}
+  .explore-button{font-size:13px}
+}

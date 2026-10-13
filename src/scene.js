@@ -189,8 +189,6 @@ export function mountScene(container) {
     container.dataset.phase = motionPhase(elapsed);
     container.dataset.fluid = amount.toFixed(3);
     container.dataset.particleCount = String(count);
-    const hint = container.parentElement.querySelector('.fluid-hint');
-    if (hint) hint.hidden = amount < .2 || paused;
     container.dataset.interaction = uniforms.uInfluence.value > .1 && amount > .1 ? 'active' : 'idle';
     renderer.render(scene, camera); container.querySelector('.scene-fallback').hidden = true;
   };
