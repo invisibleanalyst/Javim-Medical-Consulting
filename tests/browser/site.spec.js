@@ -1,0 +1,66 @@
+import {test,expect} from '@playwright/test';
+test('desktop scene, booking modal, anatomy and catalogue work',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('/');
+  await expect(page.locator('#medical-scene canvas')).toBeVisible({timeout:20000});
+  await page.locator('[data-scene="dna"]').click();
+  await expect(page.locator('[data-scene="dna"]')).toHaveAttribute('aria-pressed','true');
+  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Play animation');
+  await page.locator('#motion-toggle').click();
+  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Pause animation');
+  await page.keyboard.press('Space');
+  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Play animation');
+  await page.getByRole('button',{name:'Make an appointment'}).click();
+  await expect(page.locator('#booking-dialog')).toBeVisible();
+  await expect(page.locator('.booking-options a')).toHaveCount(3);
+  for(const a of await page.locator('.booking-options a').all())expect(await a.getAttribute('href')).toMatch(/^https:\/\/wa.me\/254114793610\?/);
+  await page.keyboard.press('Escape');await expect(page.locator('#booking-dialog')).not.toBeVisible();
+  await page.locator('.explorer-disclosure>summary').click();
+  await page.locator('[data-system="kidneys"]').click();
+  await expect(page.locator('#system-info h3')).toHaveText('Kidneys');
+  await page.locator('[data-organ="thyroid"]').focus();await page.keyboard.press('Enter');
+  await expect(page.locator('#system-info h3')).toHaveText('Thyroid');
+  await page.locator('#system-info a').click();
+  await expect(page.locator('#results-count')).toHaveText('1 TEST MATCHING YOUR SEARCH');
+  await expect(page.locator('.test-row h3')).toHaveText('Thyroid Function Tests');
+  await page.getByRole('button',{name:'Clear search'}).click();
+  await expect(page.locator('#results-count')).toHaveText('42 TESTS');
+  await page.locator('#test-search').fill('cbc');await expect(page.locator('.test-row h3')).toHaveText('Full Hemogram');
+  await page.locator('#test-search').fill('unknown-test');await expect(page.getByRole('heading',{name:'No matching tests.'})).toBeVisible();
+  await page.getByRole('button',{name:'Clear search'}).click();
+  await page.getByRole('button',{name:'Microbiology',exact:true}).click();
+  await expect(page.locator('.test-row')).toHaveCount(5);
+  expect(errors).toEqual([]);
+});
+test('mobile navigation, responsive bounds and reduced motion',async({page})=>{
+  await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('/');await expect(page.locator('#medical-scene canvas')).toBeVisible({timeout:20000});
+  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Play animation');
+  await page.getByRole('button',{name:'Open navigation'}).click();
+  await expect(page.locator('#navigation')).toBeVisible();
+  await page.getByRole('link',{name:'Contact',exact:true}).click();await expect(page.locator('#navigation')).not.toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.locator('.contact-info details').nth(1).locator('summary').click();
+  await expect(page.getByText('9:00 AM – 6:00 PM')).toBeVisible();
+  await page.goto('/services');await page.locator('#test-search').fill('h pylori');
+  await expect(page.locator('.test-row h3')).toHaveText('H. pylori Test');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+test('untrusted search input is text and does not execute',async({page})=>{
+  await page.goto('/services?q=%3Cimg%20src=x%20onerror=alert(1)%3E');
+  await expect(page.locator('#test-search')).toHaveValue('<img src=x onerror=alert(1)>');
+  await expect(page.locator('.empty-results')).toBeVisible();
+  await expect(page.locator('#catalogue-results img')).toHaveCount(0);
+});
+test('without WebGL, a static illustration and all booking controls remain usable',async({page})=>{
+  await page.addInitScript(()=>{
+    const original=HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/.test(type)?null:original.call(this,type,...args);};
+  });
+  await page.goto('/');
+  await expect(page.locator('.scene-live')).toHaveText('ILLUSTRATION',{timeout:20000});
+  await expect(page.locator('.scene-fallback')).toBeVisible();
+  await page.getByRole('button',{name:'Make an appointment'}).click();
+  await expect(page.locator('#booking-dialog')).toBeVisible();
+});
