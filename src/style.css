@@ -32,3 +32,8 @@
 .booking-options a[href^="https://wa.me/"] h3,.booking-options a[href^="https://wa.me/"]>.index{color:#282b29}
 .booking-options a[href^="https://wa.me/"]:hover h3{color:var(--whatsapp-green)}
 .scene-fallback svg{transform:rotate(-18deg)}
+.fluid-hint{font-family:var(--mono);font-size:9px;letter-spacing:.04em;color:#62695e;margin-right:auto;padding:8px 0;pointer-events:none}
+#medical-scene{cursor:crosshair}
+.scene-fallback svg{max-width:65%;stroke-width:4;opacity:.8}
+.motion-toggle svg{width:15px;height:15px;vertical-align:middle}
+.fluid-hint{background:#f7f7f2e6;border-radius:20px;padding:7px 9px}

@@ -40,6 +40,7 @@ test('mobile navigation, responsive bounds and reduced motion',async({page})=>{
   await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});
   await page.goto('/');await expect(page.locator('#medical-scene canvas')).toBeVisible({timeout:20000});
   await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Play animation');
+  await expect(page.locator('#medical-scene')).toHaveAttribute('data-particle-count','14000');
   await page.getByRole('button',{name:'Open navigation'}).click();
   await expect(page.locator('#navigation')).toBeVisible();
   await page.getByRole('link',{name:'Contact',exact:true}).click();await expect(page.locator('#navigation')).not.toBeVisible();

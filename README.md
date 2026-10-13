@@ -20,6 +20,10 @@ Screenshots of the current implementation. The landing-page DNA scene is paused 
 
 ![Homepage with the DNA visualization selected](docs/screenshots/dna.png)
 
+### Flowing particle phase
+
+![DNA dissolved into flowing red grains and droplets](docs/screenshots/dna-fluid.png)
+
 ### Interactive anatomy explorer
 
 ![Expanded anatomy explorer and related laboratory tests](docs/screenshots/anatomy.png)
@@ -64,7 +68,9 @@ Once public Cal.com event links exist, copy `.env.example` to `.env.local` and f
 
 The supplied logo images were visible in the conversation but were not available as local downloadable files, and retrieval from the former website was blocked. The current mark is a hand-recreated SVG based on the supplied artwork, not the original vector. Replace `public/assets/javim-mark.svg` and `favicon.svg` with approved originals for launch.
 
-The landing-page DNA uses offset helical strands, paired bases, overlapping irregular grains forming continuous strands, smaller grain clusters across the connecting rungs, and multi-scale surface creases with soft studio lighting. The helix is oversized and cropped at the top and bottom, with responsive scaling and a restrained rose light wash across the hero. A slowly drifting key light and rim highlight reveal surface depth during animation. The starting view is tilted, and all molecular materials use red shades. WhatsApp text and links use a darker brand green on light backgrounds and bright WhatsApp green on the dark contact section to preserve contrast. The starting view is tilted, and all molecular materials use red shades. WhatsApp text and links use a darker brand green on light backgrounds and bright WhatsApp green on the dark contact section to preserve contrast. The WebGL canvas preserves alpha, has no opaque scene background or fog, and composites directly over the light page. Its slow rotation supports pointer/touch exploration, a pause control, reduced-motion preferences, off-screen suspension and a static DNA fallback. This is an original scientific illustration, not a scientifically exact molecular model or a claim that Javim offers genetic testing. The former blood-cell/DNA switcher and technical labels have been removed from the hero.
+The landing-page visual starts as a thin red helix leaning right, then automatically dissolves into coherent curling streams of grain and droplet particles before reforming. The 24-second cycle rests intact for four seconds, dissolves over five seconds, flows for seven seconds, reforms over six seconds and rests again. GPU shaders animate 32,000 particles on desktop and 14,000 on mobile; they suggest a dense liquid cloud without attempting to render billions of objects. Moving a pointer or deliberately dragging on touch repels and swirls nearby particles in the fluid phase. Touch uses `pan-y` so vertical page scrolling remains available. The effect is an illustrative liquid-like particle flow, not a physically exact fluid simulation.
+
+The canvas remains transparent over the softly lit hero, with pause, reduced-motion, off-screen suspension and a static fallback. Reduced motion starts with intact, still DNA; pressing Play opts into animation. Particle positions are calculated from their original DNA coordinates, so the scene continuously reforms without accumulating drift. This is a scientific illustration, not a claim that Javim offers genetic testing. WhatsApp text and links retain accessible brand-green colours.
 
 The anatomy explorer is an original stylized SVG with clickable and keyboard-selectable organs; it is not realistic 3D anatomy. Related tests provide service navigation, not diagnostic recommendations. No other brands' or watermarked stock imagery is included.
 
