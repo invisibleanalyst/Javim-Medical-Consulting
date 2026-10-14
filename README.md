@@ -4,6 +4,20 @@ A minimalist, responsive laboratory website built with Vite, vanilla JavaScript 
 
 ## Current design
 
+### Interactive testing journey
+
+The former three principles are now a user-controlled process: Enquire → Arrange your sample → Testing & results. Selecting a step changes the illustration, explanation and action. Enquiry and results actions open WhatsApp; sample arrangements open the existing booking choices. Arrow keys, Home and End navigate the tabs. External-laboratory arrangements are framed as information to confirm during enquiry, with no promise that every test is performed on-site.
+
+These three images are AI-generated conceptual scenes, not photographs of Javim staff, equipment or premises. Responsive WebP copies are stored locally in `public/assets/process`.
+
+![Enquiry step](docs/screenshots/process-enquire.png)
+
+![Sample arrangements step](docs/screenshots/process-sample.png)
+
+![Testing and results step](docs/screenshots/process-results.png)
+
+<img src="docs/screenshots/process-mobile.png" alt="Mobile testing journey" width="390" />
+
 ### Service discovery cards
 
 Seven expandable categories in a 3–3–1 desktop layout. Opening a category automatically closes the previous one. Hover or keyboard focus reveals coordinated red scientific close-ups; tap or click reveals up to three test explanations. Category links open the full catalogue already filtered, retaining all 42 tests. Mobile cards stack and keep the artwork visible; reduced-motion preferences disable transitions. The seven images are AI-generated conceptual illustrations, not diagnostic micrographs. Responsive, lazy-loaded WebP assets live in `public/assets/services`; the complete two-size set is approximately 500 KB.

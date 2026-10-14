@@ -113,3 +113,24 @@
 @media(hover:none){.service-art{opacity:1;filter:none;transform:none}.service-card[open] .service-art{transform:none}}
 @media(max-width:600px){.service-card-visual{height:auto}.service-art{height:100%}}
 @media(prefers-reduced-motion:reduce){.service-art{transition:none;transform:none!important}}
+
+/* The testing journey: deliberate, user-controlled steps. */
+.process-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:64px;align-items:center;margin-top:88px;padding-top:64px;border-top:1px solid var(--line,#dcded5)}
+.process-image-stack{aspect-ratio:1;overflow:hidden;border-radius:120px 24px 24px 24px;background:#f5f1eb;align-self:center}
+.process-image-stack img{display:block;width:100%;height:100%;object-fit:cover;animation:process-reveal .45s ease-out}
+.process-image-stack img[hidden],.process-panels [hidden]{display:none}
+.process-copy h2{font-size:clamp(32px,3.4vw,48px);line-height:1.08;margin:18px 0 30px;letter-spacing:-1.5px}
+.process-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.process-tabs button{text-align:left;background:none;border:0;border-top:1px solid #d2d5ca;padding:14px 0;cursor:pointer;color:#5b6057;font-family:inherit;font-size:15px;line-height:1.45;display:flex;flex-direction:column;gap:12px}
+.process-tabs button[aria-selected="true"]{border-color:#d32330;color:#c31e2c}
+.process-tabs .index{font-size:11px}
+.process-tabs button:focus-visible,.process-panels [role="tabpanel"]:focus-visible{outline:2px solid #c31e2c;outline-offset:5px}
+.process-panels{margin-top:20px;min-height:290px}
+.process-panels h3{font-size:25px;font-weight:500;letter-spacing:-.5px;margin:0 0 14px}
+.process-panels p{font-size:16px;line-height:1.65;color:#5d6357;margin:0 0 15px}
+.process-panels .process-note{font-size:14px;line-height:1.6}
+.process-cta{margin-top:12px;font-size:15px;line-height:1.5}
+@keyframes process-reveal{from{opacity:.2;transform:scale(1.02)}to{opacity:1;transform:scale(1)}}
+@media(max-width:1000px){.process-section{gap:32px}.process-image-stack{border-top-left-radius:80px}.process-panels{min-height:340px}}
+@media(max-width:760px){.process-section{grid-template-columns:1fr;margin-top:40px;padding-top:36px;gap:28px}.process-image-stack{width:100%;max-width:520px;justify-self:center}.process-copy h2{font-size:36px}.process-tabs{gap:12px}.process-tabs button{font-size:14px}.process-panels{min-height:320px}}
+@media(prefers-reduced-motion:reduce){.process-image-stack img{animation:none}}
