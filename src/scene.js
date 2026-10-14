@@ -9,6 +9,7 @@ export function mountScene(container) {
     container.querySelector('canvas')?.setAttribute('hidden', '');
     button.hidden = true;
     container.dataset.phase = 'fallback';
+    container.setAttribute('aria-busy','false');
   };
   let renderer;
   try { renderer = new THREE.WebGLRenderer({antialias:true, alpha:true, powerPreference:'low-power'}); }
@@ -191,6 +192,7 @@ export function mountScene(container) {
     container.dataset.particleCount = String(count);
     container.dataset.interaction = uniforms.uInfluence.value > .1 && amount > .1 ? 'active' : 'idle';
     renderer.render(scene, camera); container.querySelector('.scene-fallback').hidden = true;
+    container.dataset.rendered='true';container.setAttribute('aria-busy','false');
   };
   document.addEventListener('visibilitychange', () => { last = performance.now(); });
   const animate = now => {

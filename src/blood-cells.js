@@ -72,7 +72,7 @@ export function mountBloodCells(container){
  let totalGrains=0;
  const cells=specifications.slice(0,compact?5:8).map(([x,y,z,scale,rx,ry],index)=>{
   const material=new THREE.MeshPhysicalMaterial({color:index%2?0xa90c20:0xb70d23,roughness:.85,metalness:0,bumpMap:texture,bumpScale:.04,roughnessMap:texture,clearcoat:0,clearcoatRoughness:.65,envMapIntensity:.2,transparent:true});
-  const mesh=new THREE.Mesh(geometry,material);mesh.scale.setScalar(scale);mesh.rotation.set(rx,ry,index*.7);group.add(mesh);
+  const mesh=new THREE.Mesh(geometry,material);mesh.scale.setScalar(scale*(compact?1.1:1.25));mesh.rotation.set(rx,ry,index*.7);group.add(mesh);
   const grainCount=compact?(index===0?12000:3500):(index===0?28000:index===1?14000:4500);
   const grains=surfaceGrains(grainCount,193+index*719,1);mesh.add(grains);totalGrains+=grainCount;
   return {mesh,grains,x,y,z,rx,ry,index};

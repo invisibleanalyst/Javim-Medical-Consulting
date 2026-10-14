@@ -4,6 +4,12 @@ A minimalist, responsive laboratory website built with Vite, vanilla JavaScript 
 
 ## Current design
 
+### Page loading and motion
+
+Homepage and services introductions have subtle entrance animations; selected homepage sections reveal once as they enter the viewport. Reduced-motion preferences disable these effects. Content is visible by default, including when animation APIs are unavailable. The DNA canvas fades in after its first rendered frame; no placeholder drawing is shown during loading. If WebGL fails, a static capture of the real 3D scene is displayed from `public/assets/dna-poster.webp`.
+
+Catalogue departments behave as an exclusive accordion, including after searches and filter changes. Searches retain all matching tests and initially open the first matching department.
+
 ### Individual test guidance
 
 All 42 tests include a “Before your test” card, with Before / During / After sections and a test-specific WhatsApp enquiry. Hover or keyboard focus previews the card; click pins it open. Escape dismisses it. Mobile uses a stacked expandable card, and only one guidance card stays open at a time. Event delegation keeps the behaviour working after catalogue search and filter updates.

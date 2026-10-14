@@ -204,3 +204,9 @@ body.service-drawer-open{overflow:hidden}
 @media(max-width:900px){.test-guide-columns{grid-template-columns:1fr;gap:18px}.test-guide-card{padding:20px}.test-guide>summary{font-size:14px}}
 @media(max-width:600px){.test-row:has(.test-guide[open]){flex-wrap:wrap}.test-row:has(.test-guide[open])>div:first-child{flex-basis:100%}.test-row:has(.test-guide[open]) .test-action{flex-direction:row;align-items:center;justify-content:space-between;width:100%}.test-guide-columns p{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.test-guide>summary span{transition:none}}
+
+/* Reveal the DNA only after its first real frame, not a placeholder drawing. */
+#medical-scene canvas{opacity:0;transition:opacity .35s ease}
+#medical-scene[data-rendered="true"] canvas{opacity:1}
+#medical-scene .scene-fallback img{width:100%;height:100%;object-fit:cover}
+@media(prefers-reduced-motion:reduce){#medical-scene canvas{transition:none}}
