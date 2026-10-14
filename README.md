@@ -20,13 +20,16 @@ These three images are AI-generated conceptual scenes, not photographs of Javim 
 
 ### Service discovery cards
 
-Seven expandable categories in a 3–3–1 desktop layout. Opening a category automatically closes the previous one. Hover or keyboard focus reveals coordinated red scientific close-ups; tap or click reveals up to three test explanations. Category links open the full catalogue already filtered, retaining all 42 tests. Mobile cards stack and keep the artwork visible; reduced-motion preferences disable transitions. The seven images are AI-generated conceptual illustrations, not diagnostic micrographs. Responsive, lazy-loaded WebP assets live in `public/assets/services`; the complete two-size set is approximately 500 KB.
+Seven categories in a fixed 3–3–1 desktop layout. Selecting a card opens a 480 px right-side dialog, with an image, three test previews and a link to the full category. The grid stays in place. A category selector updates the same panel. Close using the button, Escape or the backdrop; focus returns to the opening card. The panel is full-width on mobile. Its slide-and-fade animation respects reduced-motion preferences.
+
+The seven images are AI-generated conceptual illustrations, not diagnostic micrographs. Responsive lazy-loaded WebP assets live in `public/assets/services`; the complete two-size set is approximately 500 KB. The full catalogue retains all 42 tests.
 
 ![Seven service cards](docs/screenshots/service-cards.png)
 
-![Expanded service card](docs/screenshots/service-cards-expanded.png)
+![Right-side service details](docs/screenshots/service-drawer.png)
 
-<img src="docs/screenshots/service-cards-mobile.png" alt="Mobile expandable service card" width="390" />
+<img src="docs/screenshots/service-drawer-mobile.png" alt="Mobile full-width service details" width="390" />
+
 
 
 Screenshots of the current implementation. The landing-page DNA scene is paused in these captures. Its transparent canvas lets the light page background show through.

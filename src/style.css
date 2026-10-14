@@ -134,3 +134,37 @@
 @media(max-width:1000px){.process-section{gap:32px}.process-image-stack{border-top-left-radius:80px}.process-panels{min-height:340px}}
 @media(max-width:760px){.process-section{grid-template-columns:1fr;margin-top:40px;padding-top:36px;gap:28px}.process-image-stack{width:100%;max-width:520px;justify-self:center}.process-copy h2{font-size:36px}.process-tabs{gap:12px}.process-tabs button{font-size:14px}.process-panels{min-height:320px}}
 @media(prefers-reduced-motion:reduce){.process-image-stack img{animation:none}}
+
+/* Category details live in a side sheet; the card grid never reflows. */
+.service-card-trigger{display:block;width:100%;border:0;background:none;text-align:left;color:inherit;font:inherit;padding:0 24px 26px;cursor:pointer}
+.service-card-title{font-size:23px;font-weight:500;line-height:1.2;letter-spacing:-.6px}
+.service-card-summary{display:block;font-size:15px;line-height:1.6;color:#61645d;margin-top:14px;min-height:48px}
+.service-card-trigger:focus-visible{outline:2px solid #c7202d;outline-offset:-4px;border-radius:16px}
+.service-card.selected{border-color:#d5b7b4}
+.service-card.selected .service-art{opacity:1;filter:saturate(1)}
+body.service-drawer-open{overflow:hidden}
+@media(min-width:761px){html{scrollbar-gutter:stable}}
+.service-drawer{position:fixed;inset:0 0 0 auto;margin:0;width:min(480px,100%);max-width:100%;height:100%;height:100dvh;max-height:100dvh;border:0;border-left:1px solid #e0ddd4;border-radius:24px 0 0 24px;padding:28px 32px 40px;overflow-y:auto;overscroll-behavior:contain;background:#fffefa;color:#222720;box-shadow:-20px 0 70px #25301f18}
+.service-drawer[open]{animation:service-sheet-in .3s cubic-bezier(.2,.7,.2,1)}
+.service-drawer::backdrop{background:#25301f30;animation:service-backdrop-in .3s ease}
+.service-drawer.is-closing{animation:service-sheet-out .2s ease forwards}
+.service-drawer.is-closing::backdrop{animation:service-backdrop-out .2s ease forwards}
+.service-drawer-top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.service-drawer-close{width:44px;height:44px;border:1px solid #d9d9ce;border-radius:50%;background:transparent;color:inherit;font-size:28px;cursor:pointer}
+.service-category-picker{margin-bottom:24px}
+.service-category-picker label{display:block;font-size:13px;color:#61645d;margin-bottom:8px}
+.service-category-picker select{width:100%;border:1px solid #d9d9ce;border-radius:8px;padding:12px;background:#fffefa;color:inherit;font:inherit;font-size:15px}
+.service-drawer-image{aspect-ratio:3/2;overflow:hidden;border-radius:12px;background:#faf8f3;margin-bottom:24px}
+.service-drawer-image .service-art{opacity:1;filter:none;transform:none;animation:none}
+.service-drawer h2{font-size:34px;line-height:1.12;letter-spacing:-1px;margin:0 0 14px}
+.service-drawer-description{font-size:16px;line-height:1.65;color:#61645d;margin:0 0 24px}
+.service-drawer .service-card-content{padding:24px 0 0}
+.service-drawer li h3{font-size:17px;font-weight:500;line-height:1.4;margin:0}
+.service-drawer .service-card-content li p{font-size:15px}
+.service-drawer .text-link{font-size:16px}
+@keyframes service-sheet-in{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:translateX(0)}}
+@keyframes service-sheet-out{to{opacity:0;transform:translateX(48px)}}
+@keyframes service-backdrop-in{from{background:transparent}to{background:#25301f30}}
+@keyframes service-backdrop-out{to{background:transparent}}
+@media(max-width:600px){.service-card-title{font-size:24px}.service-card-summary{min-height:0}.service-drawer{border-radius:0;padding:20px 24px 32px}}
+@media(prefers-reduced-motion:reduce){.service-drawer[open],.service-drawer::backdrop,.service-drawer.is-closing,.service-drawer.is-closing::backdrop{animation:none}}
