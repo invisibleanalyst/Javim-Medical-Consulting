@@ -6,11 +6,13 @@ A minimalist, responsive laboratory website built with Vite, vanilla JavaScript 
 
 ### Services-page blood cells
 
-A transparent, lazy-loaded Three.js scene sits beside “Find your next answer.” Eight biconcave cells (five on mobile) use high-resolution membrane geometry, fine procedural bump texture, studio lighting and independent slow drifting/rotation. Pointer movement gently changes the viewing angle. This is a conceptual scientific rendering, not a clinical micrograph or a physically simulated bloodstream.
+A transparent, lazy-loaded Three.js scene sits beside “Find your next answer.” Eight biconcave cells (five on mobile) use high-resolution membrane geometry, fine procedural bump texture, studio lighting and independent slow drifting/rotation. A dense layer of GPU-shaded surface grains adds visible relief: 69,000 on desktop and 26,000 on mobile. These use sphere-impostor points attached to the membranes, not billions of simulated particles. Lower gloss keeps the surfaces granular. Pointer movement gently changes the viewing angle. This is a conceptual scientific rendering, not a clinical micrograph or a physically simulated bloodstream.
 
 The animation pauses off-screen and when the tab is hidden. A pause/play control is available; reduced-motion preferences start the scene paused. WebGL failure retains the existing static blood-cell illustration and leaves catalogue search usable.
 
 ![Services introduction with floating red blood cells](docs/screenshots/services-blood-cells.png)
+
+![Close-up of granular red blood cells](docs/screenshots/blood-cells-grain.png)
 
 <img src="docs/screenshots/services-blood-cells-mobile.png" alt="Mobile services introduction" width="390" />
 
