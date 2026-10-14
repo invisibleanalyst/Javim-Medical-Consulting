@@ -6,7 +6,7 @@ The direction pairs oversized editorial typography with the retained red scienti
 
 The homepage now leads from its introduction into search and a service index. Seven category buttons update one large image and summary, with a single action opening the matching test panel. On mobile, selecting a category brings the preview into view. The full catalogue keeps all 42 tests, exclusive category accordions and Before / During / After guidance.
 
-The process section, anatomy explorer, business enquiry and contact details are retained in a new composition. Larger-text controls, labelled animation controls, opt-in 3D movement, keyboard focus and reduced-motion behaviour remain supported.
+The process section, anatomy explorer, business enquiry and contact details are retained in a new composition. Larger-text controls, labelled animation controls, in-view 3D movement, keyboard focus and reduced-motion behaviour remain supported.
 
 ## Preview
 
@@ -23,3 +23,5 @@ The process section, anatomy explorer, business enquiry and contact details are 
 All contact details and test information are retained. No new claims of accreditation, overseas locations or exclusive in-house testing have been added. The existing generated images remain conceptual illustrations rather than photographs of Javim premises or personnel. Cal.com links can be configured when the account is ready; booking otherwise uses the confirmed WhatsApp contact.
 
 The production build passed. Category/image selection, matching service details, homepage search and the process/booking flow were verified. Layout bounds passed at 1440, 720, 390 and 320 pixels with larger text enabled. Automated WCAG A/AA scans passed on the homepage, catalogue with expanded test guidance, privacy and the open service panel. These do not replace review with real users or establish complete accessibility compliance.
+
+The DNA and blood-cell scenes start when they enter the viewport and stop off-screen or when the tab is hidden. Visible play buttons are removed. Reduced-motion preferences keep the scene still; keyboard users can focus it and press Space to pause or resume.

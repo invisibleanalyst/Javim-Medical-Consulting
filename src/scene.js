@@ -7,7 +7,7 @@ export function mountScene(container) {
   const fallback = () => {
     container.querySelector('.scene-fallback').hidden = false;
     container.querySelector('canvas')?.setAttribute('hidden', '');
-    button.hidden = true;
+    if(button)button.hidden = true;
     container.dataset.phase = 'fallback';
     container.setAttribute('aria-busy','false');
   };
@@ -140,7 +140,7 @@ export function mountScene(container) {
   const particles = new THREE.Points(geometry, particleMaterial);
   particles.frustumCulled = false; dna.add(particles);
   const media = matchMedia('(prefers-reduced-motion: reduce)');
-  let paused = true, visible = true, elapsed = 0, last = performance.now(), lastRender = 0, dirty = true, frame;
+  let paused = media.matches, visible = true, elapsed = 0, last = performance.now(), lastRender = 0, dirty = true, frame;
   const desiredPointer = new THREE.Vector3(), ndc = new THREE.Vector2(), raycaster = new THREE.Raycaster();
   const plane = new THREE.Plane(new THREE.Vector3(0,0,1), 0), intersection = new THREE.Vector3();
   let desiredInfluence = 0, pressed = false;
@@ -159,15 +159,14 @@ export function mountScene(container) {
   renderer.domElement.addEventListener('pointerdown', event => { pressed = true; pointer(event); });
   for (const name of ['pointerup','pointercancel','pointerleave']) renderer.domElement.addEventListener(name, () => { pressed = false; desiredInfluence = 0; });
   const sync = () => {
-    button.setAttribute('aria-label', paused ? 'Play animation' : 'Pause animation');
-    button.setAttribute('aria-pressed', String(paused));
-    button.innerHTML = paused
-      ? '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5Z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span>Play animation</span>'
-      : '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="1.8"/></svg><span>Pause animation</span>';
+    container.dataset.paused=String(paused);
+    container.tabIndex=0;
+    container.setAttribute('aria-keyshortcuts','Space');
+    container.setAttribute('aria-label',`DNA transforming into flowing particles. ${paused?'Paused':'Playing'}. Press Space to ${paused?'play':'pause'} animation.`);
   };
   sync();
-  button.addEventListener('click', () => { paused = !paused; dirty = true; desiredInfluence = 0; sync(); });
-  media.addEventListener('change', () => { if(media.matches)paused = true; elapsed = 0; desiredInfluence = 0; dirty = true; sync(); });
+  container.addEventListener('keydown',event=>{if(event.code==='Space'){event.preventDefault();paused=!paused;dirty=true;desiredInfluence=0;sync();}});
+  media.addEventListener('change', () => { paused = media.matches; elapsed = 0; desiredInfluence = 0; dirty = true; sync(); });
   const resize = () => {
     const {width, height} = container.getBoundingClientRect(); if (!width || !height) return;
     dna.scale.setScalar(width < 450 ? 1.55 : 1.85);
@@ -187,6 +186,7 @@ export function mountScene(container) {
     dna.rotation.y = -.45 + Math.sin(elapsed * .09) * .12;
     key.position.x = -5 + Math.sin(elapsed * .12) * .8;
     rim.intensity = 2.2 + Math.sin(elapsed * .15) * .12;
+    container.dataset.time = elapsed.toFixed(3);
     container.dataset.phase = motionPhase(elapsed);
     container.dataset.fluid = amount.toFixed(3);
     container.dataset.particleCount = String(count);

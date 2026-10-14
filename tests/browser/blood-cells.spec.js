@@ -2,10 +2,10 @@ import {test,expect} from '@playwright/test';
 test('transparent blood cell scene pauses, resumes and leaves the catalogue usable',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/services');
  const scene=page.locator('#blood-scene');await expect(scene).toHaveAttribute('data-status','ready',{timeout:30000});await expect(scene).toHaveAttribute('data-cell-count','8');await expect(scene).toHaveAttribute('data-grain-count','69000');
- const toggle=page.getByRole('button',{name:'Play blood cell animation'});await expect(toggle).toBeVisible();
+ await expect(scene).toHaveAttribute('data-paused','true');
  expect(await scene.locator('canvas').evaluate(c=>{const gl=c.getContext('webgl2');return gl.getContextAttributes().alpha&&gl.getParameter(gl.COLOR_CLEAR_VALUE)[3]===0;})).toBe(true);
  const time=await scene.getAttribute('data-time');await page.waitForTimeout(200);await expect(scene).toHaveAttribute('data-time',time);
- await toggle.click();await expect.poll(async()=>Number(await scene.getAttribute('data-time'))).toBeGreaterThan(.05);await page.getByRole('button',{name:'Pause blood cell animation'}).click();
+ await scene.focus();await page.keyboard.press('Space');await expect.poll(async()=>Number(await scene.getAttribute('data-time'))).toBeGreaterThan(.05);await page.keyboard.press('Space');
  await page.locator('#test-search').fill('cbc');await expect(page.locator('.test-row h3')).toHaveText('Full Hemogram');expect(errors).toEqual([]);
 });
 test('mobile cells keep search and heading available and use fewer meshes',async({page})=>{
