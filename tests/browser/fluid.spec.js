@@ -6,7 +6,7 @@ test('automatic DNA cycle flows, responds to a pointer, pauses and reforms',asyn
   await expect(scene).toHaveAttribute('data-phase','intact');
   await expect(scene).toHaveAttribute('data-particle-count','32000');
   await page.clock.pauseAt(new Date(Date.now() + 1000));
-  await page.locator('#motion-toggle').focus();
+  await page.locator('#medical-scene').focus();
   await page.keyboard.press('Space');
   await page.clock.fastForward(6500);await expect(scene).toHaveAttribute('data-phase','dissolving');
   await page.clock.fastForward(4000);await expect(scene).toHaveAttribute('data-phase','fluid');
@@ -15,10 +15,10 @@ test('automatic DNA cycle flows, responds to a pointer, pauses and reforms',asyn
   await page.mouse.move(box.x+box.width*.5,box.y+box.height*.5);
   await page.clock.fastForward(800);await expect(scene).toHaveAttribute('data-interaction','active');
   expect(Buffer.compare(initial,await page.screenshot({clip:box}))).not.toBe(0);
-  await page.locator('#motion-toggle').focus();await page.keyboard.press('Space');
+  await page.locator('#medical-scene').focus();await page.keyboard.press('Space');
   const frozen=await scene.getAttribute('data-fluid');await page.clock.fastForward(3000);
   await expect(scene).toHaveAttribute('data-fluid',frozen);
-  await page.locator('#motion-toggle').focus();await page.keyboard.press('Space');await page.clock.fastForward(7000);
+  await page.locator('#medical-scene').focus();await page.keyboard.press('Space');await page.clock.fastForward(7000);
   await expect(scene).toHaveAttribute('data-phase','reforming');
   await page.clock.fastForward(5000);await expect(scene).toHaveAttribute('data-phase','intact');
   expect(errors).toEqual([]);

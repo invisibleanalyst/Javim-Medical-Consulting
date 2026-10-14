@@ -9,11 +9,11 @@ test('desktop scene, booking modal, anatomy and catalogue work',async({page})=>{
     const gl = canvas.getContext('webgl2');
     return gl.getContextAttributes().alpha && gl.getParameter(gl.COLOR_CLEAR_VALUE)[3] === 0;
   })).toBe(true);
-  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Play animation');
-  await page.locator('#motion-toggle').click();
-  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Pause animation');
+  await expect(page.locator('#medical-scene')).toHaveAttribute('data-paused','true');
+  await page.locator('#medical-scene').focus();await page.keyboard.press('Space');
+  await expect(page.locator('#medical-scene')).toHaveAttribute('data-paused','false');
   await page.keyboard.press('Space');
-  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Play animation');
+  await expect(page.locator('#medical-scene')).toHaveAttribute('data-paused','true');
   await page.getByRole('button',{name:'Book a visit'}).click();
   await expect(page.locator('#booking-dialog')).toBeVisible();
   await expect(page.locator('.booking-options a')).toHaveCount(3);
@@ -39,7 +39,7 @@ test('desktop scene, booking modal, anatomy and catalogue work',async({page})=>{
 test('mobile navigation, responsive bounds and reduced motion',async({page})=>{
   await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});
   await page.goto('/');await expect(page.locator('#medical-scene canvas')).toBeVisible({timeout:20000});
-  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Play animation');
+  await expect(page.locator('#medical-scene')).toHaveAttribute('data-paused','true');
   await expect(page.locator('#medical-scene')).toHaveAttribute('data-particle-count','14000');
   await page.getByRole('button',{name:'Open navigation'}).click();
   await expect(page.locator('#navigation')).toBeVisible();
@@ -63,7 +63,7 @@ test('without WebGL, a static illustration and all booking controls remain usabl
     HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/.test(type)?null:original.call(this,type,...args);};
   });
   await page.goto('/');
-  await expect(page.locator('#motion-toggle')).toBeHidden({timeout:20000});
+  await expect(page.locator('#medical-scene')).toHaveAttribute('data-phase','fallback',{timeout:20000});
   await expect(page.locator('.scene-fallback')).toBeVisible();
   await page.getByRole('button',{name:'Book a visit'}).click();
   await expect(page.locator('#booking-dialog')).toBeVisible();
