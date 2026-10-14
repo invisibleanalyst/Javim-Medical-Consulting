@@ -6,7 +6,7 @@ test('service side sheet preserves the grid and supports switching, dismissal an
  await expect(cards).toHaveCount(7);
  for(const image of await cards.locator('img').all()){await image.scrollIntoViewIfNeeded();await expect(image).toHaveJSProperty('complete',true);expect(await image.evaluate(i=>i.naturalWidth)).toBeGreaterThan(0);}
  const dimensions=()=>cards.evaluateAll(nodes=>nodes.map(n=>({width:n.offsetWidth,height:n.offsetHeight,top:n.offsetTop,left:n.offsetLeft})));
- const before=await dimensions();expect(before[0].top).toBe(before[2].top);expect(before[6].left).toBe(before[1].left);
+ const before=await dimensions();const columns=await page.locator('.service-card-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length);expect(before[0].top).toBe(before[columns-1].top);expect(before[6].left).toBeGreaterThan(before[0].left);
  const first=cards.first().getByRole('button');await first.click();await expect(drawer).toBeVisible();
  await expect(page.getByRole('button',{name:'Close service details'})).toBeFocused();
  expect(await dimensions()).toEqual(before);

@@ -12,7 +12,7 @@ test('essential pages and expanded interactive content pass automated accessibil
     const scan=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
     expect(scan.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)}))).toEqual([]);
   }
-  await page.goto('/');await page.getByRole('button',{name:'Make an appointment'}).click();
+  await page.goto('/');await page.getByRole('button',{name:'Book a visit'}).click();
   const modalScan=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   expect(modalScan.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))).toEqual([]);
 });

@@ -14,7 +14,7 @@ test('desktop scene, booking modal, anatomy and catalogue work',async({page})=>{
   await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Pause animation');
   await page.keyboard.press('Space');
   await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-label','Play animation');
-  await page.getByRole('button',{name:'Make an appointment'}).click();
+  await page.getByRole('button',{name:'Book a visit'}).click();
   await expect(page.locator('#booking-dialog')).toBeVisible();
   await expect(page.locator('.booking-options a')).toHaveCount(3);
   for(const a of await page.locator('.booking-options a').all())expect(await a.getAttribute('href')).toMatch(/^https:\/\/wa.me\/254114793610\?/);
@@ -65,6 +65,6 @@ test('without WebGL, a static illustration and all booking controls remain usabl
   await page.goto('/');
   await expect(page.locator('#motion-toggle')).toBeHidden({timeout:20000});
   await expect(page.locator('.scene-fallback')).toBeVisible();
-  await page.getByRole('button',{name:'Make an appointment'}).click();
+  await page.getByRole('button',{name:'Book a visit'}).click();
   await expect(page.locator('#booking-dialog')).toBeVisible();
 });
