@@ -4,6 +4,17 @@ A minimalist, responsive laboratory website built with Vite, vanilla JavaScript 
 
 ## Current design
 
+### Service discovery cards
+
+Seven expandable categories in a 3–3–1 desktop layout. Hover or keyboard focus reveals original red abstract vector illustrations; tap or click reveals up to three test explanations. Category links open the full catalogue already filtered, retaining all 42 tests. Mobile cards stack and keep the artwork visible; reduced-motion preferences disable transitions.
+
+![Seven service cards](docs/screenshots/service-cards.png)
+
+![Expanded service card](docs/screenshots/service-cards-expanded.png)
+
+<img src="docs/screenshots/service-cards-mobile.png" alt="Mobile expandable service card" width="390" />
+
+
 Screenshots of the current implementation. The landing-page DNA scene is paused in these captures. Its transparent canvas lets the light page background show through.
 
 ### Desktop homepage

@@ -77,3 +77,31 @@
 .explorer-content{padding-top:32px}
 @media(max-width:760px){.anatomy-art{height:510px}.explorer-grid{gap:18px}.explorer-content{padding-top:15px}.anatomy-hotspot{width:30px;height:30px}.anatomy-tools{font-size:11px}}
 .anatomy-tools .arrow-icon{width:14px;height:14px;max-width:none}
+
+/* Service discovery: seven quiet cards, with details available on demand. */
+.service-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+.service-card{min-width:0;background:#fffefa;border:1px solid #deded6;border-radius:18px;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.service-card:last-child{grid-column:2}
+.service-card>summary{display:block;list-style:none;cursor:pointer;padding:0 24px 26px}
+.service-card>summary::-webkit-details-marker{display:none}
+.service-card-visual{height:172px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin:0 -24px 23px;background:radial-gradient(ellipse at 60% 60%,#fae8e5,transparent 72%)}
+.service-art{width:220px;height:168px;opacity:.18;filter:saturate(.65);transform:translateY(12px) scale(.92);transition:opacity .45s,transform .65s,filter .45s}
+.service-card:hover .service-art,.service-card:focus-within .service-art,.service-card[open] .service-art{opacity:1;filter:saturate(1);transform:translateY(0) scale(1)}
+.service-card:hover,.service-card[open]{border-color:#d5b7b4;box-shadow:0 12px 30px #44101006}
+.service-card-heading{display:flex;align-items:start;justify-content:space-between;gap:12px}
+.service-card-heading h3{font-size:23px;font-weight:500;line-height:1.2;margin:0;letter-spacing:-.6px}
+.service-card-toggle{font-size:24px;line-height:1;color:#c7202d;transition:transform .2s}
+.service-card[open] .service-card-toggle{transform:rotate(45deg)}
+.service-card summary>p{font-size:15px;line-height:1.6;color:#61645d;margin:14px 0 0;min-height:48px}
+.service-card-content{padding:24px;border-top:1px solid #e8e4df}
+.service-card-content .eyebrow{font-size:11px;color:#66695f}
+.service-card-content ul{list-style:none;margin:20px 0 24px;padding:0}
+.service-card-content li+li{margin-top:20px}
+.service-card-content strong{font-size:16px;font-weight:500;line-height:1.4;display:block}
+.service-card-content li p{font-size:14px;line-height:1.6;color:#61645d;margin:5px 0 0}
+.service-card-content .text-link{font-size:14px}
+.service-card summary:focus-visible{outline:2px solid #c7202d;outline-offset:-4px;border-radius:16px}
+@media(hover:none){.service-art{opacity:.8;filter:none;transform:none}}
+@media(max-width:900px) and (min-width:601px){.service-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-card:last-child{grid-column:1/-1;width:calc((100% - 20px)/2);justify-self:center}}
+@media(max-width:600px){.service-card-grid{grid-template-columns:1fr;gap:16px}.service-card:last-child{grid-column:auto}.service-card-visual{height:134px;margin-bottom:18px}.service-art{height:145px}.service-card-heading h3{font-size:24px}.service-card summary>p{min-height:0}.service-card>summary{padding-bottom:24px}}
+@media(prefers-reduced-motion:reduce){.service-card,.service-art,.service-card-toggle{transition:none}}
