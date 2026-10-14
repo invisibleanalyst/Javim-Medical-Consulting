@@ -7,9 +7,13 @@ test('service cards disclose previews and link to the complete category',async({
   await expect(cards.locator('.service-card-content:visible')).toHaveCount(0);
   const boxes=await cards.evaluateAll(nodes=>nodes.map(n=>{const b=n.getBoundingClientRect();return {x:b.x,y:b.y,width:b.width};}));
   expect(boxes[0].y).toBe(boxes[2].y);expect(boxes[3].y).toBe(boxes[5].y);expect(boxes[6].x).toBe(boxes[1].x);
+  await cards.first().locator('summary').click();
+  await expect(cards.first()).toHaveAttribute('open','');
   const hormones=cards.nth(2);
   await hormones.locator('summary').focus();await page.keyboard.press('Enter');
   await expect(hormones).toHaveAttribute('open','');
+  await expect(cards.first()).not.toHaveAttribute('open','');
+  await expect(page.locator('.service-card[open]')).toHaveCount(1);
   await expect(hormones.locator('li')).toHaveCount(3);
   await hormones.getByRole('link',{name:'View all 18 tests'}).click();
   await expect(page).toHaveURL(/category=immunoassays/);
@@ -19,9 +23,12 @@ test('service cards disclose previews and link to the complete category',async({
 test('mobile cards open on tap without horizontal overflow',async({page})=>{
   await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});
   await page.goto('/');
+  const first=page.locator('.service-card').first();
+  await first.locator('summary').click();
   const card=page.locator('.service-card').last();
   await card.locator('summary').click();
   await expect(card.locator('li')).toHaveCount(2);
+  await expect(first).not.toHaveAttribute('open','');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await card.getByRole('link',{name:'Explore this category'}).click();
   await expect(page.locator('.test-row')).toHaveCount(2);
