@@ -184,3 +184,23 @@ body.service-drawer-open{overflow:hidden}
 #blood-motion-toggle[hidden]{display:none}
 @media(max-width:1000px) and (min-width:761px){.catalogue-hero{gap:0;grid-template-columns:1.2fr 1fr}.catalogue-intro h1{font-size:70px}.blood-visual{height:350px}}
 @media(max-width:760px){.catalogue-hero{position:relative;display:block;margin-bottom:30px}.catalogue-intro h1{font-size:clamp(54px,10vw,72px);max-width:85%;line-height:1.03}.catalogue-intro>.large-copy{font-size:17px;padding-top:12px}.blood-visual{position:absolute;right:-6px;top:4px;width:100px;height:120px;pointer-events:none;opacity:.85}.catalogue-intro{z-index:auto}.catalogue-intro h1,.catalogue-intro .eyebrow{position:relative;z-index:1}.blood-visual #blood-motion-toggle{pointer-events:auto;right:0;bottom:0;width:30px;height:30px}.catalogue-intro h1{max-width:calc(100% - 65px)}#blood-scene{inset:0 0 20px}}
+
+/* Practical test guidance, readable with pointer, keyboard or touch. */
+.test-row>div:first-child{flex:1;min-width:0}
+.test-guide{margin-top:16px}
+.test-guide>summary{display:inline-flex;gap:20px;align-items:center;list-style:none;cursor:pointer;font-size:14px;color:#a71f2d;padding:8px 0}
+.test-guide>summary::-webkit-details-marker{display:none}
+.department .test-guide>summary{padding:8px 0;gap:20px}
+.test-guide>summary span{font-size:18px;transition:transform .2s}
+.test-guide[open]>summary span{transform:rotate(45deg)}
+.test-guide-card{border:1px solid #dddcd1;border-radius:14px;background:#fffefa;padding:24px;margin:10px 0 4px;box-shadow:0 8px 24px #282b2905}
+.test-guide-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:20px}
+.test-guide-columns h4{font-size:17px;font-weight:500;margin:0 0 9px}
+.test-row .test-guide-columns p{font-size:15px;line-height:1.65;margin:0;color:#5e6358}
+.test-row .test-guide-note{font-size:13px;line-height:1.65;border-top:1px solid #e3e3d9;padding-top:16px;margin-top:20px;color:#61665a}
+.test-guide-card .text-link{font-size:14px;margin-top:10px}
+.test-guide>summary:focus-visible{outline:2px solid #c31e2c;outline-offset:4px}
+.test-row:has(.test-guide[open]){align-items:flex-start}
+@media(max-width:900px){.test-guide-columns{grid-template-columns:1fr;gap:18px}.test-guide-card{padding:20px}.test-guide>summary{font-size:14px}}
+@media(max-width:600px){.test-row:has(.test-guide[open]){flex-wrap:wrap}.test-row:has(.test-guide[open])>div:first-child{flex-basis:100%}.test-row:has(.test-guide[open]) .test-action{flex-direction:row;align-items:center;justify-content:space-between;width:100%}.test-guide-columns p{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.test-guide>summary span{transition:none}}

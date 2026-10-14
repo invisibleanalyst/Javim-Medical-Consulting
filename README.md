@@ -4,6 +4,16 @@ A minimalist, responsive laboratory website built with Vite, vanilla JavaScript 
 
 ## Current design
 
+### Individual test guidance
+
+All 42 tests include a “Before your test” card, with Before / During / After sections and a test-specific WhatsApp enquiry. Hover or keyboard focus previews the card; click pins it open. Escape dismisses it. Mobile uses a stacked expandable card, and only one guidance card stays open at a time. Event delegation keeps the behaviour working after catalogue search and filter updates.
+
+Content is general educational guidance, not lab-approved operational instructions. Javim must confirm preparation, specimen handling, pricing, turnaround and any external testing. Medicines are never presented as something to stop without clinical advice. Test-specific copy is maintained in `src/test-guidance.js` for review and updates.
+
+![Full Hemogram guidance](docs/screenshots/test-guidance.png)
+
+<img src="docs/screenshots/test-guidance-mobile.png" alt="Mobile test guidance" width="390" />
+
 ### Services-page blood cells
 
 A transparent, lazy-loaded Three.js scene sits beside “Find your next answer.” Eight biconcave cells (five on mobile) use high-resolution membrane geometry, fine procedural bump texture, studio lighting and independent slow drifting/rotation. A dense layer of GPU-shaded surface grains adds visible relief: 69,000 on desktop and 26,000 on mobile. These use sphere-impostor points attached to the membranes, not billions of simulated particles. Lower gloss keeps the surfaces granular. Pointer movement gently changes the viewing angle. This is a conceptual scientific rendering, not a clinical micrograph or a physically simulated bloodstream.

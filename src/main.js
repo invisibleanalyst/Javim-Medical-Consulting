@@ -4,6 +4,7 @@ import '@fontsource/figtree/latin-600.css';
 import '@fontsource/figtree/latin-700.css';
 import '@fontsource/dm-mono/latin-400.css';
 import './style.css';
+import {renderGuidance, initGuidance} from './test-guidance.js';
 import {renderProcess, initProcess} from './process.js';
 import {renderServiceCards, renderServiceDrawer, initServiceDrawer} from './service-drawer.js';
 import {departments, allTests, bookingTypes, whatsapp, systems, matchesTest, safeCalUrl} from './data.js';
@@ -16,7 +17,7 @@ const isServices = location.pathname.replace(/\/$/, '') === '/services';
 const isPrivacy = location.pathname.replace(/\/$/, '') === '/privacy';
 const homeAnchor = id => isServices || isPrivacy ? `/#${id}` : `#${id}`;
 const departmentRows = (full=false) => departments.map((d,i)=> `<details class="department" id="${d.id}"><summary><span class="index">0${i+1}</span><span class="department-title">${d.name}<small>${d.summary}</small></span><span class="test-count">${d.tests.length} TESTS</span><span class="plus" aria-hidden="true">+</span></summary><div class="department-content">${d.tests.map(t=>testRow(t)).join('')}</div></details>`).join('');
-function testRow(t) { return `<div class="test-row" data-test-name="${t.name}"><div><h3>${t.name}</h3>${t.alias?`<span class="alias">${t.alias}</span>`:''}<p>${t.description}</p></div><div class="test-action"><span class="sample">${t.sample}</span><a href="${whatsapp(`Hello Javim Medical, I would like to enquire about ${t.name}. Please share pricing, turnaround time and preparation requirements.`)}" target="_blank" rel="noopener noreferrer" aria-label="Enquire about ${t.name}">Enquire ↗</a></div></div>`; }
+function testRow(t) { return `<div class="test-row" data-test-name="${t.name}"><div><h3>${t.name}</h3>${t.alias?`<span class="alias">${t.alias}</span>`:''}<p>${t.description}</p>${renderGuidance(t)}</div><div class="test-action"><span class="sample">${t.sample}</span><a href="${whatsapp(`Hello Javim Medical, I would like to enquire about ${t.name}. Please share pricing, turnaround time and preparation requirements.`)}" target="_blank" rel="noopener noreferrer" aria-label="Enquire about ${t.name}">Enquire ${arrow}</a></div></div>`; }
 const header = `<a class="skip-link" href="#main">Skip to content</a><header class="header wrap">${brand}<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">＋</span></button><nav id="navigation" aria-label="Main navigation"><a href="/services" ${isServices?'aria-current="page"':''}>Services</a><a href="${homeAnchor('about')}">The lab</a><a href="${homeAnchor('corporate')}">For business</a><a href="${homeAnchor('contact')}">Contact</a><button class="button button-small" data-book>Book a visit ${arrow}</button></nav></header>`;
 const footer = `<footer class="footer wrap"><div class="footer-top">${brand}<p>Thoughtful care.<br>Clearer answers.</p>${waLink('Let’s talk')}</div><div class="footer-bottom"><span>© ${new Date().getFullYear()} Javim Medical Consultants Limited</span><a href="/privacy">Privacy</a><span>Nairobi, Kenya <span class="red-dot"></span></span></div></footer>`;
 const booking = `<dialog id="booking-dialog" aria-labelledby="booking-title" class="booking-dialog"><div class="dialog-head"><span class="eyebrow">YOUR NEXT STEP</span><button class="close-dialog" aria-label="Close booking">×</button></div><h2 id="booking-title">Make time<br>for your health.</h2><p class="muted">Choose what you need. We’ll take it from here.</p><div class="booking-options">${bookingTypes.map((b,i)=>{const url=safeCalUrl(b.calUrl);return `<a href="${url || whatsapp(b.message)}" target="_blank" rel="noopener noreferrer"><span class="index">0${i+1}</span><div><h3>${b.name}</h3><p>${b.description}</p><span class="alias">${url?'CHOOSE A TIME ON CAL.COM':'<span class="whatsapp-text">ARRANGE VIA WHATSAPP</span>'}</span></div>${arrow}</a>`}).join('')}</div><p class="booking-note">Pricing, preparation and collection arrangements are confirmed by our team. Please avoid sending sensitive medical information in your initial enquiry.</p></dialog>`;
@@ -70,6 +71,7 @@ if (!isServices && !isPrivacy) {
   document.querySelector('#anatomy-reset').addEventListener('click',()=>anatomyViewer?.reset());
 }
 if (isServices) {
+  initGuidance();
   import('./blood-cells.js').then(({mountBloodCells})=>mountBloodCells(document.querySelector('#blood-scene'))).catch(()=>{document.querySelector('#blood-motion-toggle').hidden=true;});
   let filter='all';const search=document.querySelector('#test-search');
   const render=()=>{
