@@ -2,7 +2,7 @@ import {departments} from './data.js';
 import {serviceArt} from './service-art.js';
 
 export function renderServiceCards(){
- return departments.map((d,i)=>`<article class="service-card"><button class="service-card-trigger" data-service="${d.id}" aria-haspopup="dialog" aria-controls="service-drawer" aria-expanded="false"><span class="service-card-visual">${serviceArt(i)}</span><span class="service-card-heading"><span class="service-card-title">${d.name}</span><span class="service-card-toggle" aria-hidden="true">↗</span></span><span class="service-card-summary">${d.summary}</span></button></article>`).join('');
+ return departments.map((d,i)=>`<article class="service-card"><button class="service-card-trigger" data-service="${d.id}" aria-haspopup="dialog" aria-controls="service-drawer" aria-expanded="false"><span class="service-card-visual">${serviceArt(i)}</span><span class="service-card-heading"><span class="service-card-title">${d.name}</span><span class="service-card-toggle" aria-hidden="true">→</span></span><span class="service-card-summary">${d.summary}</span><span class="service-card-action">View tests <span aria-hidden="true">→</span></span></button></article>`).join('');
 }
 export function renderServiceDrawer(){
  return `<dialog id="service-drawer" class="service-drawer" aria-labelledby="service-drawer-title"><div class="service-drawer-top"><span class="eyebrow">OUR SERVICES</span><button class="service-drawer-close" aria-label="Close service details" autofocus>×</button></div><div class="service-category-picker"><label for="service-category">Choose a category</label><select id="service-category">${departments.map(d=>`<option value="${d.id}">${d.name}</option>`).join('')}</select></div><div id="service-drawer-body"></div></dialog>`;

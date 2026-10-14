@@ -77,9 +77,9 @@ export function mountBloodCells(container){
   const grains=surfaceGrains(grainCount,193+index*719,1);mesh.add(grains);totalGrains+=grainCount;
   return {mesh,grains,x,y,z,rx,ry,index};
  });
- const media=matchMedia('(prefers-reduced-motion:reduce)');let paused=media.matches,visible=true,elapsed=0,previous=0,frame=0,dirty=true;
+ const media=matchMedia('(prefers-reduced-motion:reduce)');let paused=true,visible=true,elapsed=0,previous=0,frame=0,dirty=true;
  const pointer=new THREE.Vector2(),target=new THREE.Vector2();
- function updateButton(){toggle.setAttribute('aria-label',paused?'Play blood cell animation':'Pause blood cell animation');toggle.setAttribute('aria-pressed',String(paused));toggle.innerHTML=paused?'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 7 5-7 5Z" fill="currentColor"/></svg>':'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg>';container.dataset.paused=String(paused);}
+ function updateButton(){toggle.setAttribute('aria-label',paused?'Play blood cell animation':'Pause blood cell animation');toggle.setAttribute('aria-pressed',String(paused));toggle.innerHTML=paused?'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 7 5-7 5Z" fill="currentColor"/></svg><span>Play animation</span>':'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="2"/></svg><span>Pause animation</span>';container.dataset.paused=String(paused);}
  function resize(){const {width,height}=container.getBoundingClientRect();if(!width||!height)return;renderer.setSize(width,height);for(const c of cells)c.grains.material.uniforms.pointScale.value=height*renderer.getPixelRatio()/(2*Math.tan(THREE.MathUtils.degToRad(34/2)));camera.aspect=width/height;camera.updateProjectionMatrix();dirty=true;start();}
  function draw(now){
   frame=0;const dt=previous?Math.min((now-previous)/1000,.05):0;previous=now;
@@ -93,7 +93,7 @@ export function mountBloodCells(container){
  }
  function start(){if(!frame&&visible&&!document.hidden){previous=0;frame=requestAnimationFrame(draw);}}
  toggle.addEventListener('click',()=>{paused=!paused;updateButton();dirty=true;start();});
- media.addEventListener('change',()=>{paused=media.matches;updateButton();dirty=true;start();});
+ media.addEventListener('change',()=>{if(media.matches)paused=true;updateButton();dirty=true;start();});
  container.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||paused)return;const r=container.getBoundingClientRect();target.set((e.clientX-r.left)/r.width*2-1,(e.clientY-r.top)/r.height*2-1);});container.addEventListener('pointerleave',()=>target.set(0,0));
  const observer=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;if(visible)start();else{cancelAnimationFrame(frame);frame=0;previous=0;}},{threshold:0});observer.observe(container);
  document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;}else start();});
