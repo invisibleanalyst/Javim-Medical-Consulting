@@ -2,11 +2,13 @@
 
 A minimalist, responsive laboratory website built with Vite, vanilla JavaScript and Three.js. Figtree and DM Mono are bundled locally, without external font requests.
 
-## Design version: Clear Care
+## Design 02 — In Focus
 
-This branch is `design/clear-care`, an alternative focused on readability and older adults. The original remains on `main`. See [the design comparison](docs/design-versions.md) for screenshots, changes and validation.
+A new visual variation on `design/clear-care`, with an editorial introduction, a red search-and-booking band, and an interactive service index. Design 01 (`main`) and Design 03 (`design/guided-care`) are unchanged.
 
-![Clear Care](docs/screenshots/clear-care/home.png)
+[Review Design 02 and its screenshots](docs/design-02.md).
+
+![Design 02](docs/screenshots/design-02/home.png)
 
 ## Shared features and original design reference
 

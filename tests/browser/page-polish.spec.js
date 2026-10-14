@@ -12,6 +12,6 @@ test('delayed DNA module shows no substitute drawing before the first real frame
  release();await expect(scene).toHaveAttribute('data-rendered','true',{timeout:30000});await expect(scene).toHaveAttribute('aria-busy','false');await expect(scene.locator('canvas')).toBeVisible();
 });
 test('scroll reveals enhance content and reduced motion avoids entrance animations',async({page})=>{
- await page.emulateMedia({reducedMotion:'no-preference'});await page.goto('/');const card=page.locator('.service-card').first();await card.scrollIntoViewIfNeeded();await expect(card).toHaveAttribute('data-revealed','true');
+ await page.emulateMedia({reducedMotion:'no-preference'});await page.goto('/');const card=page.locator('.about-grid').first();await card.scrollIntoViewIfNeeded();await expect(card).toHaveAttribute('data-revealed','true');
  await page.emulateMedia({reducedMotion:'reduce'});await page.reload();await expect(page.locator('#medical-scene')).toHaveAttribute('data-rendered','true',{timeout:30000});expect(await page.evaluate(()=>document.getAnimations().filter(a=>a.playState==='running').length)).toBe(0);await expect(page.getByRole('button',{name:'Make an appointment'})).toBeVisible();
 });

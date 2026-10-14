@@ -14,7 +14,7 @@ export function initServiceDrawer(){
  function select(id){
   const index=departments.findIndex(d=>d.id===id);if(index<0)return;
   const d=departments[index];picker.value=id;
-  document.querySelectorAll('[data-service]').forEach(button=>{const active=button.dataset.service===id;button.setAttribute('aria-expanded',String(active));button.closest('.service-card').classList.toggle('selected',active);});
+  document.querySelectorAll('[data-service]').forEach(button=>{const active=button.dataset.service===id;button.setAttribute('aria-expanded',String(active));button.closest('.service-card')?.classList.toggle('selected',active);});
   drawer.querySelector('#service-drawer-body').innerHTML=`<div class="service-drawer-image">${serviceArt(index)}</div><h2 id="service-drawer-title">${d.name}</h2><p class="service-drawer-description">${d.summary}</p><div class="service-card-content"><span class="eyebrow">${d.tests.length>3?'A FEW OF OUR TESTS':'AVAILABLE TESTS'}</span><ul>${d.tests.slice(0,3).map(t=>`<li><h3>${t.name}</h3><p>${t.description}</p></li>`).join('')}</ul><a class="text-link" href="/services?category=${d.id}">${d.tests.length>3?`View all ${d.tests.length} tests`:'Explore this category'} <span aria-hidden="true">→</span></a></div>`;
  }
  function close(){
@@ -30,5 +30,5 @@ export function initServiceDrawer(){
  const isOutside=event=>{const r=drawer.getBoundingClientRect();return event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom;};
  drawer.addEventListener('pointerdown',event=>outside=isOutside(event));
  drawer.addEventListener('click',event=>{if(outside&&isOutside(event))close();outside=false;});
- drawer.addEventListener('close',()=>{closing=false;drawer.classList.remove('is-closing');document.body.classList.remove('service-drawer-open');document.querySelectorAll('[data-service]').forEach(b=>{b.setAttribute('aria-expanded','false');b.closest('.service-card').classList.remove('selected');});opener?.focus({preventScroll:true});});
+ drawer.addEventListener('close',()=>{closing=false;drawer.classList.remove('is-closing');document.body.classList.remove('service-drawer-open');document.querySelectorAll('[data-service]').forEach(b=>{b.setAttribute('aria-expanded','false');b.closest('.service-card')?.classList.remove('selected');});opener?.focus({preventScroll:true});});
 }
