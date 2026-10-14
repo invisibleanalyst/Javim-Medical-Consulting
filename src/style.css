@@ -168,3 +168,19 @@ body.service-drawer-open{overflow:hidden}
 @keyframes service-backdrop-out{to{background:transparent}}
 @media(max-width:600px){.service-card-title{font-size:24px}.service-card-summary{min-height:0}.service-drawer{border-radius:0;padding:20px 24px 32px}}
 @media(prefers-reduced-motion:reduce){.service-drawer[open],.service-drawer::backdrop,.service-drawer.is-closing,.service-drawer.is-closing::backdrop{animation:none}}
+
+/* Floating blood cells stay inside the catalogue introduction. */
+.catalogue-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:28px;align-items:center;margin-bottom:38px}
+.catalogue-intro{min-width:0;position:relative;z-index:1}
+.catalogue-intro h1{font-size:clamp(60px,6.9vw,100px)}
+.catalogue-intro>.large-copy{font-size:20px;line-height:1.55;max-width:570px;margin-bottom:0}
+.blood-visual{position:relative;min-width:0;height:420px}
+#blood-scene{position:absolute;inset:0;overflow:hidden;touch-action:pan-y;background:radial-gradient(ellipse at 52% 50%,#f4e7e250,transparent 69%)}
+#blood-scene canvas{display:block;width:100%;height:100%}
+.blood-fallback{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.blood-fallback[hidden]{display:none}
+#blood-motion-toggle{position:absolute;bottom:0;right:8px;color:#575f52;background:#ffffff90;border:1px solid #d6d8ce;z-index:2;width:38px;height:38px;display:grid;place-items:center}
+#blood-motion-toggle svg{width:14px;height:14px}
+#blood-motion-toggle[hidden]{display:none}
+@media(max-width:1000px) and (min-width:761px){.catalogue-hero{gap:0;grid-template-columns:1.2fr 1fr}.catalogue-intro h1{font-size:70px}.blood-visual{height:350px}}
+@media(max-width:760px){.catalogue-hero{position:relative;display:block;margin-bottom:30px}.catalogue-intro h1{font-size:clamp(54px,10vw,72px);max-width:85%;line-height:1.03}.catalogue-intro>.large-copy{font-size:17px;padding-top:12px}.blood-visual{position:absolute;right:-6px;top:4px;width:100px;height:120px;pointer-events:none;opacity:.85}.catalogue-intro{z-index:auto}.catalogue-intro h1,.catalogue-intro .eyebrow{position:relative;z-index:1}.blood-visual #blood-motion-toggle{pointer-events:auto;right:0;bottom:0;width:30px;height:30px}.catalogue-intro h1{max-width:calc(100% - 65px)}#blood-scene{inset:0 0 20px}}

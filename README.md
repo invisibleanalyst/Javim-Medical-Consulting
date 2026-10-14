@@ -4,6 +4,16 @@ A minimalist, responsive laboratory website built with Vite, vanilla JavaScript 
 
 ## Current design
 
+### Services-page blood cells
+
+A transparent, lazy-loaded Three.js scene sits beside “Find your next answer.” Eight biconcave cells (five on mobile) use high-resolution membrane geometry, fine procedural bump texture, studio lighting and independent slow drifting/rotation. Pointer movement gently changes the viewing angle. This is a conceptual scientific rendering, not a clinical micrograph or a physically simulated bloodstream.
+
+The animation pauses off-screen and when the tab is hidden. A pause/play control is available; reduced-motion preferences start the scene paused. WebGL failure retains the existing static blood-cell illustration and leaves catalogue search usable.
+
+![Services introduction with floating red blood cells](docs/screenshots/services-blood-cells.png)
+
+<img src="docs/screenshots/services-blood-cells-mobile.png" alt="Mobile services introduction" width="390" />
+
 ### Interactive testing journey
 
 The former three principles are now a user-controlled process: Enquire → Arrange your sample → Testing & results. Selecting a step changes the illustration, explanation and action. Enquiry and results actions open WhatsApp; sample arrangements open the existing booking choices. Arrow keys, Home and End navigate the tabs. External-laboratory arrangements are framed as information to confirm during enquiry, with no promise that every test is performed on-site.
