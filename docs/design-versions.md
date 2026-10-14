@@ -21,6 +21,10 @@ The original website is preserved on `main`. Both alternatives retain the same c
 
 [Full homepage](screenshots/clear-care/home-full.png) · [Services](screenshots/clear-care/services.png) · [Mobile](screenshots/clear-care/mobile.png)
 
+## Guided Care preview
+
+Guided Care builds on Clear Care with homepage test search, three task-based starting choices and compact service cards. See its [screenshots and comparison](https://github.com/invisibleanalyst/Javim-Medical-Consulting/blob/design/guided-care/docs/design-versions.md).
+
 ## Validation
 
 Clear Care: production build passed; automated WCAG A/AA scans passed on the homepage, services with expanded test guidance, and privacy. Larger-text persistence, keyboard operation and horizontal bounds were verified at 720, 390 and 320 pixel widths. The 720 pixel layout also approximates the space available when zooming a 1440 pixel desktop window to 200%.

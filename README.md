@@ -8,7 +8,7 @@ This branch is `design/clear-care`, an alternative focused on readability and ol
 
 ![Clear Care](docs/screenshots/clear-care/home.png)
 
-## Current design
+## Shared features and original design reference
 
 ### Page loading and motion
 
