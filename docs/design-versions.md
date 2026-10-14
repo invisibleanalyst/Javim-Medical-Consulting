@@ -1,14 +1,16 @@
 # Design versions
 
+**Update:** the current Design 03 is **Human, by Nature**, replacing the Guided Care draft below. [Review the new Design 03](design-03.md). Design 02 has been redesigned independently as [In Focus](https://github.com/invisibleanalyst/Javim-Medical-Consulting/blob/design/clear-care/docs/design-02.md).
+
 The original website is preserved on `main`. Both alternatives retain the same confirmed contact details, 42 tests, booking choices and general test guidance. No branch is merged or deployed by this change.
 
 | Version | Branch | Direction |
 | --- | --- | --- |
 | Original | [main](https://github.com/invisibleanalyst/Javim-Medical-Consulting/tree/main) | Original minimalist design and animated scientific scenes |
-| Clear Care | [design/clear-care](https://github.com/invisibleanalyst/Javim-Medical-Consulting/tree/design/clear-care) | Larger text, explicit controls, stronger contrast and a clear telephone contact |
-| Guided Care | [design/guided-care](https://github.com/invisibleanalyst/Javim-Medical-Consulting/tree/design/guided-care) | Builds on Clear Care with task-based entry points, homepage test search and simplified service discovery |
+| Design 02 — In Focus | [design/clear-care](https://github.com/invisibleanalyst/Javim-Medical-Consulting/tree/design/clear-care) | Editorial composition, a red search band and an interactive service index |
+| Design 03 — Human, by Nature | [design/guided-care](https://github.com/invisibleanalyst/Javim-Medical-Consulting/tree/design/guided-care) | Human-focused introduction, a photographic service gallery and a dedicated science section |
 
-## Clear Care
+## Earlier Clear Care draft (superseded)
 
 - Larger body text and readable secondary labels, greater line spacing, darker red and charcoal text.
 - Explicit “View tests” card actions; illustrations stay visible without hovering.
@@ -21,7 +23,7 @@ The original website is preserved on `main`. Both alternatives retain the same c
 
 [Full homepage](screenshots/clear-care/home-full.png) · [Services](screenshots/clear-care/services.png) · [Mobile](screenshots/clear-care/mobile.png)
 
-## Guided Care
+## Earlier Guided Care draft (superseded)
 
 Built from Clear Care, preserving its readability, contrast, larger-text control and paused scenes.
 

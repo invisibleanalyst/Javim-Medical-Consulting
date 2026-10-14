@@ -1,4 +1,4 @@
-/* Version 2 — Clear Care: readable type, contrast and explicit controls. */
+/* Shared readable type, contrast and explicit controls. */
 :root{font-size:18px;--red:#b9162b;--muted:#555e55;--line:#c5cbbf;color:#202b24;background:#faf9f5}
 html{scroll-padding-top:130px}
 body{font-size:1rem;line-height:1.65}

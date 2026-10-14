@@ -2,11 +2,13 @@
 
 A minimalist, responsive laboratory website built with Vite, vanilla JavaScript and Three.js. Figtree and DM Mono are bundled locally, without external font requests.
 
-## Design version: Guided Care
+## Design 03 — Human, by Nature
 
-This branch is `design/guided-care`, a second alternative built from Clear Care, focused on clear choices, readability and older adults. The original remains on `main`. See [the design comparison](docs/design-versions.md) for screenshots, changes and validation.
+A new visual variation on `design/guided-care`, with a human-focused introduction, a floating navigation bar, a visual service collection and a dedicated science section. Design 01 and Design 02 are unchanged.
 
-![Guided Care](docs/screenshots/guided-care/home.png)
+[Review Design 03 and its screenshots](docs/design-03.md).
+
+![Design 03](docs/screenshots/design-03/home.png)
 
 ## Shared features and original design reference
 
