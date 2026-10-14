@@ -4,6 +4,11 @@ test('service cards disclose previews and link to the complete category',async({
   await page.goto('/');
   const cards=page.locator('.service-card');
   await expect(cards).toHaveCount(7);
+  for(const image of await cards.locator('img.service-art').all()){
+    await image.scrollIntoViewIfNeeded();
+    await expect(image).toHaveJSProperty('complete',true);
+    expect(await image.evaluate(img=>img.naturalWidth)).toBeGreaterThan(0);
+  }
   await expect(cards.locator('.service-card-content:visible')).toHaveCount(0);
   const boxes=await cards.evaluateAll(nodes=>nodes.map(n=>{const b=n.getBoundingClientRect();return {x:b.x,y:b.y,width:b.width};}));
   expect(boxes[0].y).toBe(boxes[2].y);expect(boxes[3].y).toBe(boxes[5].y);expect(boxes[6].x).toBe(boxes[1].x);

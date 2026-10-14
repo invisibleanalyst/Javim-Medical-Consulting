@@ -6,7 +6,7 @@ A minimalist, responsive laboratory website built with Vite, vanilla JavaScript 
 
 ### Service discovery cards
 
-Seven expandable categories in a 3–3–1 desktop layout. Opening a category automatically closes the previous one. Hover or keyboard focus reveals original red abstract vector illustrations; tap or click reveals up to three test explanations. Category links open the full catalogue already filtered, retaining all 42 tests. Mobile cards stack and keep the artwork visible; reduced-motion preferences disable transitions.
+Seven expandable categories in a 3–3–1 desktop layout. Opening a category automatically closes the previous one. Hover or keyboard focus reveals coordinated red scientific close-ups; tap or click reveals up to three test explanations. Category links open the full catalogue already filtered, retaining all 42 tests. Mobile cards stack and keep the artwork visible; reduced-motion preferences disable transitions. The seven images are AI-generated conceptual illustrations, not diagnostic micrographs. Responsive, lazy-loaded WebP assets live in `public/assets/services`; the complete two-size set is approximately 500 KB.
 
 ![Seven service cards](docs/screenshots/service-cards.png)
 
