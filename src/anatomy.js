@@ -7,7 +7,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 export async function mountAnatomy(container, onSelect) {
   let renderer;
   try {renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,powerPreference:'low-power'});}
-  catch {container.dataset.status='fallback';return null;}
+  catch {container.dataset.status='fallback';container.setAttribute('aria-busy','false');return null;}
   renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<760?1:1.5));
   renderer.setClearColor(0xffffff,0);renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.9;
   renderer.domElement.setAttribute('aria-hidden','true');
@@ -21,7 +21,7 @@ export async function mountAnatomy(container, onSelect) {
   const fill=new THREE.DirectionalLight(0xffc9c7,.8);fill.position.set(3,-2,5);scene.add(fill);
   let model;
   try {model=(await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync('/assets/anatomy/torso.glb')).scene;}
-  catch {renderer.dispose();container.dataset.status='fallback';return null;}
+  catch {renderer.dispose();container.dataset.status='fallback';container.setAttribute('aria-busy','false');return null;}
   const bounds=new THREE.Box3().setFromObject(model), centre=bounds.getCenter(new THREE.Vector3()), size=bounds.getSize(new THREE.Vector3());
   model.position.sub(centre);const scale=5.8/size.y;model.scale.setScalar(scale);model.position.multiplyScalar(scale);scene.add(model);
   const tissueCanvas=document.createElement('canvas');tissueCanvas.width=tissueCanvas.height=128;
@@ -43,8 +43,8 @@ export async function mountAnatomy(container, onSelect) {
   model.updateMatrixWorld(true);
   for(const [id,nodes] of groups){const b=new THREE.Box3();nodes.forEach(n=>b.union(new THREE.Box3().setFromObject(n)));organBounds.set(id,b);}
   camera.position.set(1.1,.3,11.5);camera.lookAt(0,0,0);
-  container.appendChild(renderer.domElement);container.querySelector('.anatomy-fallback').hidden=true;
-  container.dataset.status='ready';container.dataset.meshCount=String(meshes.length);container.dataset.systems=[...groups.keys()].join(',');
+  container.appendChild(renderer.domElement);
+  container.dataset.status='loading';container.dataset.meshCount=String(meshes.length);container.dataset.systems=[...groups.keys()].join(',');
   const controls=new OrbitControls(camera,renderer.domElement);
   controls.enableDamping=!matchMedia('(prefers-reduced-motion: reduce)').matches;controls.enablePan=false;controls.enableZoom=false;
   controls.minAzimuthAngle=-.8;controls.maxAzimuthAngle=.8;
@@ -89,10 +89,10 @@ export async function mountAnatomy(container, onSelect) {
       button.setAttribute('aria-pressed',String(button.dataset.organ===selected));
     }
   };
-  renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelAnimationFrame(frame);renderer.domElement.hidden=true;container.querySelector('.anatomy-fallback').hidden=false;container.dataset.status='fallback';});
+  renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelAnimationFrame(frame);renderer.domElement.hidden=true;container.querySelector('.anatomy-fallback').hidden=false;container.dataset.status='fallback';container.setAttribute('aria-busy','false');});
   const animate=now=>{frame=requestAnimationFrame(animate);const dt=Math.min((now-last)/1000,.05);last=now;if(!visible||document.hidden)return;
     if(focus){const a=1-Math.exp(-dt*5);camera.position.lerp(focus.position,a);controls.target.lerp(focus.target,a);dirty=true;if(camera.position.distanceTo(focus.position)<.008)focus=null;}
-    const moved=controls.update();if(!dirty&&!moved)return;dirty=false;project();renderer.render(scene,camera);container.dataset.renderedCamera=camera.position.toArray().map(v=>v.toFixed(3)).join(',');
+    const moved=controls.update();if(!dirty&&!moved)return;dirty=false;project();renderer.render(scene,camera);container.querySelector('.anatomy-fallback').hidden=true;container.dataset.status='ready';container.setAttribute('aria-busy','false');container.dataset.renderedCamera=camera.position.toArray().map(v=>v.toFixed(3)).join(',');
   };
   select('blood');animate(performance.now());
   return {select,reset};
