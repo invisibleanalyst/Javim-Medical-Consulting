@@ -210,3 +210,12 @@ body.service-drawer-open{overflow:hidden}
 #medical-scene[data-rendered="true"] canvas{opacity:1}
 #medical-scene .scene-fallback img{width:100%;height:100%;object-fit:cover}
 @media(prefers-reduced-motion:reduce){#medical-scene canvas{transition:none}}
+
+
+/* Keep the detailed torso visible until the live model has rendered. */
+.anatomy-fallback picture{display:block;width:100%;height:100%}
+.anatomy-fallback img{display:block;width:100%;height:100%;object-fit:contain}
+.anatomy-fallback[hidden],#anatomy-scene canvas[hidden]{display:none}
+#anatomy-scene canvas{visibility:hidden}
+#anatomy-scene[data-status="ready"] canvas{visibility:visible}
+.anatomy-art:has(#anatomy-scene:not([data-status="ready"])) .anatomy-hotspots{visibility:hidden}

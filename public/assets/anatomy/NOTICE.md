@@ -12,3 +12,5 @@ The atlas credits third-party kidney and inner-ear models with noncommercial lic
 This viewer is for exploring laboratory services. It is not a diagnostic, surgical or educational anatomy reference. The source atlas also carries anatomical limitations; professional review is appropriate before using it for medical instruction.
 
 See `torso-manifest.json` for the included structures and their origin.
+
+The torso-poster.webp and torso-poster-mobile.webp loading/fallback images are transparent renders of the same adapted model, under the same CC BY-SA 4.0 attribution and licensing terms. They replace the former simplified drawing.
